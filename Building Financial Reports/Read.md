@@ -6,7 +6,18 @@ The focus is on understanding whether **highly leveraged real estate companies**
 
 Using financial statements data, we compute and analyze **leverage** and **profitability** ratios and visualize their relationship to support data-driven investing.
 
----
+A debt-to-equity ratio or an equity multiplier ratio. Save this ratio in a column named "leverage_ratio" in a DataFrame called df_ratios.
+
+A gross margin ratio or an operating margin ratio. Save this ratio in a column named "profitability_ratio", in a DataFrame called df_ratios.
+
+The datasets provided to you have information on the type of industry a company belongs to in a column called comp_type. Your manager also needs you to answer these three questions:
+
+1) Which company type (comp_type) has the lowest profitability ratio? Save this comp_type value as a string in a variable called lowest_profitability.
+
+2) Which company type has the highest leverage ratio? Save this comp_type value as a string in a variable called highest_leverage.
+
+3) What is the relationship between leverage and profitability in the real estate companies represented in this data? Is it "positive," "negative," or "no relationship?" Save one of these three strings in a variable called relationship.
+
 
 ## Business Objective
 Help the investment manager answer:
@@ -42,3 +53,5 @@ Used to measure how much debt a company uses relative to equity.
 Saved as:
 ```python
 df_ratios["leverage_ratio"]
+
+
