@@ -1,0 +1,6198 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>pydeck</title>
+        <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.13.0/mapbox-gl.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <script src='https://cdn.jsdelivr.net/npm/@deck.gl/jupyter-widget@~9.0.*/dist/index.js'></script>
+    <style>
+    body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#deck-container {
+  width: 100vw;
+  height: 100vh;
+}
+
+#deck-container canvas {
+  z-index: 1;
+  background: none;
+}
+    </style>
+  </head>
+  <body>
+    <div id="deck-container">
+    </div>
+  </body>
+  <script>
+    const container = document.getElementById('deck-container');
+    const jsonInput = {
+  "initialViewState": {
+    "latitude": 40.7,
+    "longitude": -74.0,
+    "pitch": 30,
+    "zoom": 5
+  },
+  "layers": [
+    {
+      "@@type": "ArcLayer",
+      "autoHighlight": true,
+      "data": [
+        {
+          "avg_arr_delay": 2.246153846153846,
+          "carrier": "EV",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "ALB",
+          "dest_lat": 42.733333,
+          "dest_lon": -73.8,
+          "flight_count": 65,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: EV\nFrom EWR \u2192 ALB\nAvg Arr Delay: 2.25 min\nFlights: 65"
+        },
+        {
+          "avg_arr_delay": 1.7988439306358381,
+          "carrier": "DL",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "ATL",
+          "dest_lat": 33.636667,
+          "dest_lon": -84.428056,
+          "flight_count": 865,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: DL\nFrom EWR \u2192 ATL\nAvg Arr Delay: 1.8 min\nFlights: 865"
+        },
+        {
+          "avg_arr_delay": 4.10803324099723,
+          "carrier": "EV",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "ATL",
+          "dest_lat": 33.636667,
+          "dest_lon": -84.428056,
+          "flight_count": 361,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: EV\nFrom EWR \u2192 ATL\nAvg Arr Delay: 4.11 min\nFlights: 361"
+        },
+        {
+          "avg_arr_delay": -8.416107382550335,
+          "carrier": "UA",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "AUS",
+          "dest_lat": 30.194444,
+          "dest_lon": -97.67,
+          "flight_count": 149,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: UA\nFrom EWR \u2192 AUS\nAvg Arr Delay: -8.42 min\nFlights: 149"
+        },
+        {
+          "avg_arr_delay": -19.966666666666665,
+          "carrier": "WN",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "AUS",
+          "dest_lat": 30.194444,
+          "dest_lon": -97.67,
+          "flight_count": 90,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: WN\nFrom EWR \u2192 AUS\nAvg Arr Delay: -19.97 min\nFlights: 90"
+        },
+        {
+          "avg_arr_delay": 15.183908045977011,
+          "carrier": "EV",
+          "color": [
+            255,
+            149,
+            0
+          ],
+          "dest": "AVL",
+          "dest_lat": 35.436111,
+          "dest_lon": -82.541667,
+          "flight_count": 87,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: EV\nFrom EWR \u2192 AVL\nAvg Arr Delay: 15.18 min\nFlights: 87"
+        },
+        {
+          "avg_arr_delay": -11.254901960784315,
+          "carrier": "EV",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "BDL",
+          "dest_lat": 41.938889,
+          "dest_lon": -72.683333,
+          "flight_count": 51,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: EV\nFrom EWR \u2192 BDL\nAvg Arr Delay: -11.25 min\nFlights: 51"
+        },
+        {
+          "avg_arr_delay": 3.0090702947845807,
+          "carrier": "EV",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "BNA",
+          "dest_lat": 36.124444,
+          "dest_lon": -86.678056,
+          "flight_count": 441,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: EV\nFrom EWR \u2192 BNA\nAvg Arr Delay: 3.01 min\nFlights: 441"
+        },
+        {
+          "avg_arr_delay": -6.1647058823529415,
+          "carrier": "WN",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "BNA",
+          "dest_lat": 36.124444,
+          "dest_lon": -86.678056,
+          "flight_count": 170,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: WN\nFrom EWR \u2192 BNA\nAvg Arr Delay: -6.16 min\nFlights: 170"
+        },
+        {
+          "avg_arr_delay": -1.1221052631578947,
+          "carrier": "B6",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "BOS",
+          "dest_lat": 42.363056,
+          "dest_lon": -71.0,
+          "flight_count": 475,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: B6\nFrom EWR \u2192 BOS\nAvg Arr Delay: -1.12 min\nFlights: 475"
+        },
+        {
+          "avg_arr_delay": -2.3333333333333335,
+          "carrier": "EV",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "BOS",
+          "dest_lat": 42.363056,
+          "dest_lon": -71.0,
+          "flight_count": 21,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: EV\nFrom EWR \u2192 BOS\nAvg Arr Delay: -2.33 min\nFlights: 21"
+        },
+        {
+          "avg_arr_delay": -1.936268829663963,
+          "carrier": "UA",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "BOS",
+          "dest_lat": 42.363056,
+          "dest_lon": -71.0,
+          "flight_count": 863,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: UA\nFrom EWR \u2192 BOS\nAvg Arr Delay: -1.94 min\nFlights: 863"
+        },
+        {
+          "avg_arr_delay": -11.1,
+          "carrier": "UA",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "BQN",
+          "dest_lat": NaN,
+          "dest_lon": NaN,
+          "flight_count": 40,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: UA\nFrom EWR \u2192 BQN\nAvg Arr Delay: -11.1 min\nFlights: 40"
+        },
+        {
+          "avg_arr_delay": -1.37012987012987,
+          "carrier": "EV",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "BTV",
+          "dest_lat": 44.471944,
+          "dest_lon": -73.153333,
+          "flight_count": 154,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: EV\nFrom EWR \u2192 BTV\nAvg Arr Delay: -1.37 min\nFlights: 154"
+        },
+        {
+          "avg_arr_delay": 3.180722891566265,
+          "carrier": "EV",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "BUF",
+          "dest_lat": 42.940556,
+          "dest_lon": -78.732222,
+          "flight_count": 166,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: EV\nFrom EWR \u2192 BUF\nAvg Arr Delay: 3.18 min\nFlights: 166"
+        },
+        {
+          "avg_arr_delay": 8.508196721311476,
+          "carrier": "EV",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "BWI",
+          "dest_lat": 39.175278,
+          "dest_lon": -76.668333,
+          "flight_count": 61,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: EV\nFrom EWR \u2192 BWI\nAvg Arr Delay: 8.51 min\nFlights: 61"
+        },
+        {
+          "avg_arr_delay": 33.72,
+          "carrier": "EV",
+          "color": [
+            255,
+            0,
+            0
+          ],
+          "dest": "CAE",
+          "dest_lat": 33.95,
+          "dest_lon": -81.116667,
+          "flight_count": 25,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: EV\nFrom EWR \u2192 CAE\nAvg Arr Delay: 33.72 min\nFlights: 25"
+        },
+        {
+          "avg_arr_delay": 3.1174785100286533,
+          "carrier": "EV",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "CHS",
+          "dest_lat": 32.898611,
+          "dest_lon": -80.040556,
+          "flight_count": 349,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: EV\nFrom EWR \u2192 CHS\nAvg Arr Delay: 3.12 min\nFlights: 349"
+        },
+        {
+          "avg_arr_delay": -4.983333333333333,
+          "carrier": "EV",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "CLE",
+          "dest_lat": 41.416667,
+          "dest_lon": -81.85,
+          "flight_count": 60,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: EV\nFrom EWR \u2192 CLE\nAvg Arr Delay: -4.98 min\nFlights: 60"
+        },
+        {
+          "avg_arr_delay": 2.42816091954023,
+          "carrier": "UA",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "CLE",
+          "dest_lat": 41.416667,
+          "dest_lon": -81.85,
+          "flight_count": 348,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: UA\nFrom EWR \u2192 CLE\nAvg Arr Delay: 2.43 min\nFlights: 348"
+        },
+        {
+          "avg_arr_delay": 4.759299781181619,
+          "carrier": "EV",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "CLT",
+          "dest_lat": 35.216667,
+          "dest_lon": -80.933333,
+          "flight_count": 457,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: EV\nFrom EWR \u2192 CLT\nAvg Arr Delay: 4.76 min\nFlights: 457"
+        },
+        {
+          "avg_arr_delay": -6.363753213367609,
+          "carrier": "US",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "CLT",
+          "dest_lat": 35.216667,
+          "dest_lon": -80.933333,
+          "flight_count": 778,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: US\nFrom EWR \u2192 CLT\nAvg Arr Delay: -6.36 min\nFlights: 778"
+        },
+        {
+          "avg_arr_delay": 3.5944444444444446,
+          "carrier": "EV",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "CMH",
+          "dest_lat": 40.0,
+          "dest_lon": -82.883333,
+          "flight_count": 180,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: EV\nFrom EWR \u2192 CMH\nAvg Arr Delay: 3.59 min\nFlights: 180"
+        },
+        {
+          "avg_arr_delay": -8.877551020408163,
+          "carrier": "9E",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "CVG",
+          "dest_lat": 39.048889,
+          "dest_lon": -84.667778,
+          "flight_count": 196,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: 9E\nFrom EWR \u2192 CVG\nAvg Arr Delay: -8.88 min\nFlights: 196"
+        },
+        {
+          "avg_arr_delay": 2.435164835164835,
+          "carrier": "EV",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "CVG",
+          "dest_lat": 39.048889,
+          "dest_lon": -84.667778,
+          "flight_count": 455,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: EV\nFrom EWR \u2192 CVG\nAvg Arr Delay: 2.44 min\nFlights: 455"
+        },
+        {
+          "avg_arr_delay": 5.791946308724833,
+          "carrier": "EV",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "DAY",
+          "dest_lat": 39.75,
+          "dest_lon": -84.183333,
+          "flight_count": 298,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: EV\nFrom EWR \u2192 DAY\nAvg Arr Delay: 5.79 min\nFlights: 298"
+        },
+        {
+          "avg_arr_delay": 6.226148409893993,
+          "carrier": "EV",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "DCA",
+          "dest_lat": 38.851944,
+          "dest_lon": -77.037778,
+          "flight_count": 283,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: EV\nFrom EWR \u2192 DCA\nAvg Arr Delay: 6.23 min\nFlights: 283"
+        },
+        {
+          "avg_arr_delay": -3.107750472589792,
+          "carrier": "UA",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "DEN",
+          "dest_lat": 39.861667,
+          "dest_lon": -104.673056,
+          "flight_count": 529,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: UA\nFrom EWR \u2192 DEN\nAvg Arr Delay: -3.11 min\nFlights: 529"
+        },
+        {
+          "avg_arr_delay": 9.613496932515337,
+          "carrier": "WN",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "DEN",
+          "dest_lat": 39.861667,
+          "dest_lon": -104.673056,
+          "flight_count": 163,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: WN\nFrom EWR \u2192 DEN\nAvg Arr Delay: 9.61 min\nFlights: 163"
+        },
+        {
+          "avg_arr_delay": -5.274900398406374,
+          "carrier": "AA",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "DFW",
+          "dest_lat": 32.896944,
+          "dest_lon": -97.038056,
+          "flight_count": 502,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: AA\nFrom EWR \u2192 DFW\nAvg Arr Delay: -5.27 min\nFlights: 502"
+        },
+        {
+          "avg_arr_delay": -2.9162995594713657,
+          "carrier": "UA",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "DFW",
+          "dest_lat": 32.896944,
+          "dest_lon": -97.038056,
+          "flight_count": 227,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: UA\nFrom EWR \u2192 DFW\nAvg Arr Delay: -2.92 min\nFlights: 227"
+        },
+        {
+          "avg_arr_delay": 9.15,
+          "carrier": "EV",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "DSM",
+          "dest_lat": 41.533889,
+          "dest_lon": -93.663056,
+          "flight_count": 120,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: EV\nFrom EWR \u2192 DSM\nAvg Arr Delay: 9.15 min\nFlights: 120"
+        },
+        {
+          "avg_arr_delay": -2.0729166666666665,
+          "carrier": "9E",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "DTW",
+          "dest_lat": 42.2125,
+          "dest_lon": -83.353333,
+          "flight_count": 96,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: 9E\nFrom EWR \u2192 DTW\nAvg Arr Delay: -2.07 min\nFlights: 96"
+        },
+        {
+          "avg_arr_delay": 5.026315789473684,
+          "carrier": "DL",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "DTW",
+          "dest_lat": 42.2125,
+          "dest_lon": -83.353333,
+          "flight_count": 190,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: DL\nFrom EWR \u2192 DTW\nAvg Arr Delay: 5.03 min\nFlights: 190"
+        },
+        {
+          "avg_arr_delay": 4.336734693877551,
+          "carrier": "EV",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "DTW",
+          "dest_lat": 42.2125,
+          "dest_lon": -83.353333,
+          "flight_count": 490,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: EV\nFrom EWR \u2192 DTW\nAvg Arr Delay: 4.34 min\nFlights: 490"
+        },
+        {
+          "avg_arr_delay": -1.2412587412587412,
+          "carrier": "B6",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "FLL",
+          "dest_lat": 26.0725,
+          "dest_lon": -80.152778,
+          "flight_count": 286,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: B6\nFrom EWR \u2192 FLL\nAvg Arr Delay: -1.24 min\nFlights: 286"
+        },
+        {
+          "avg_arr_delay": -4.638838475499092,
+          "carrier": "UA",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "FLL",
+          "dest_lat": 26.0725,
+          "dest_lon": -80.152778,
+          "flight_count": 551,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: UA\nFrom EWR \u2192 FLL\nAvg Arr Delay: -4.64 min\nFlights: 551"
+        },
+        {
+          "avg_arr_delay": 5.491329479768786,
+          "carrier": "EV",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "GRR",
+          "dest_lat": 42.883333,
+          "dest_lon": -85.533333,
+          "flight_count": 173,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: EV\nFrom EWR \u2192 GRR\nAvg Arr Delay: 5.49 min\nFlights: 173"
+        },
+        {
+          "avg_arr_delay": 6.020338983050848,
+          "carrier": "EV",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "GSO",
+          "dest_lat": 36.097778,
+          "dest_lon": -79.937222,
+          "flight_count": 295,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: EV\nFrom EWR \u2192 GSO\nAvg Arr Delay: 6.02 min\nFlights: 295"
+        },
+        {
+          "avg_arr_delay": 4.989130434782608,
+          "carrier": "EV",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "GSP",
+          "dest_lat": 34.895556,
+          "dest_lon": -82.218889,
+          "flight_count": 184,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: EV\nFrom EWR \u2192 GSP\nAvg Arr Delay: 4.99 min\nFlights: 184"
+        },
+        {
+          "avg_arr_delay": -8.626373626373626,
+          "carrier": "UA",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "HNL",
+          "dest_lat": 21.333333,
+          "dest_lon": -157.933333,
+          "flight_count": 91,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: UA\nFrom EWR \u2192 HNL\nAvg Arr Delay: -8.63 min\nFlights: 91"
+        },
+        {
+          "avg_arr_delay": 0.6083333333333333,
+          "carrier": "WN",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "HOU",
+          "dest_lat": 29.645556,
+          "dest_lon": -95.278889,
+          "flight_count": 240,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: WN\nFrom EWR \u2192 HOU\nAvg Arr Delay: 0.61 min\nFlights: 240"
+        },
+        {
+          "avg_arr_delay": 5.59593023255814,
+          "carrier": "EV",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "IAD",
+          "dest_lat": 38.944444,
+          "dest_lon": -77.455833,
+          "flight_count": 344,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: EV\nFrom EWR \u2192 IAD\nAvg Arr Delay: 5.6 min\nFlights: 344"
+        },
+        {
+          "avg_arr_delay": -24.0,
+          "carrier": "UA",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "IAD",
+          "dest_lat": 38.944444,
+          "dest_lon": -77.455833,
+          "flight_count": 1,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: UA\nFrom EWR \u2192 IAD\nAvg Arr Delay: -24.0 min\nFlights: 1"
+        },
+        {
+          "avg_arr_delay": -2.226586102719033,
+          "carrier": "UA",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "IAH",
+          "dest_lat": 29.984444,
+          "dest_lon": -95.341389,
+          "flight_count": 993,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: UA\nFrom EWR \u2192 IAH\nAvg Arr Delay: -2.23 min\nFlights: 993"
+        },
+        {
+          "avg_arr_delay": 1.813793103448276,
+          "carrier": "EV",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "IND",
+          "dest_lat": 39.717222,
+          "dest_lon": -86.294722,
+          "flight_count": 435,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: EV\nFrom EWR \u2192 IND\nAvg Arr Delay: 1.81 min\nFlights: 435"
+        },
+        {
+          "avg_arr_delay": -0.17575757575757575,
+          "carrier": "EV",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "JAX",
+          "dest_lat": 30.416667,
+          "dest_lon": -81.633333,
+          "flight_count": 330,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: EV\nFrom EWR \u2192 JAX\nAvg Arr Delay: -0.18 min\nFlights: 330"
+        },
+        {
+          "avg_arr_delay": -3.001862197392924,
+          "carrier": "UA",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "LAS",
+          "dest_lat": 36.083333,
+          "dest_lon": -115.166667,
+          "flight_count": 537,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: UA\nFrom EWR \u2192 LAS\nAvg Arr Delay: -3.0 min\nFlights: 537"
+        },
+        {
+          "avg_arr_delay": 5.450549450549451,
+          "carrier": "AA",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "LAX",
+          "dest_lat": 33.9425,
+          "dest_lon": -118.407222,
+          "flight_count": 91,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: AA\nFrom EWR \u2192 LAX\nAvg Arr Delay: 5.45 min\nFlights: 91"
+        },
+        {
+          "avg_arr_delay": -2.409456740442656,
+          "carrier": "UA",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "LAX",
+          "dest_lat": 33.9425,
+          "dest_lon": -118.407222,
+          "flight_count": 994,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: UA\nFrom EWR \u2192 LAX\nAvg Arr Delay: -2.41 min\nFlights: 994"
+        },
+        {
+          "avg_arr_delay": -5.5103734439834025,
+          "carrier": "VX",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "LAX",
+          "dest_lat": 33.9425,
+          "dest_lon": -118.407222,
+          "flight_count": 241,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: VX\nFrom EWR \u2192 LAX\nAvg Arr Delay: -5.51 min\nFlights: 241"
+        },
+        {
+          "avg_arr_delay": 7.5184049079754605,
+          "carrier": "EV",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "MCI",
+          "dest_lat": 39.291667,
+          "dest_lon": -94.730556,
+          "flight_count": 326,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: EV\nFrom EWR \u2192 MCI\nAvg Arr Delay: 7.52 min\nFlights: 326"
+        },
+        {
+          "avg_arr_delay": -0.9033942558746736,
+          "carrier": "B6",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "MCO",
+          "dest_lat": 28.429444,
+          "dest_lon": -81.308889,
+          "flight_count": 383,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: B6\nFrom EWR \u2192 MCO\nAvg Arr Delay: -0.9 min\nFlights: 383"
+        },
+        {
+          "avg_arr_delay": -8.848806366047745,
+          "carrier": "UA",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "MCO",
+          "dest_lat": 28.429444,
+          "dest_lon": -81.308889,
+          "flight_count": 754,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: UA\nFrom EWR \u2192 MCO\nAvg Arr Delay: -8.85 min\nFlights: 754"
+        },
+        {
+          "avg_arr_delay": 7.798804780876494,
+          "carrier": "WN",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "MDW",
+          "dest_lat": 41.783333,
+          "dest_lon": -87.75,
+          "flight_count": 502,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: WN\nFrom EWR \u2192 MDW\nAvg Arr Delay: 7.8 min\nFlights: 502"
+        },
+        {
+          "avg_arr_delay": 6.916299559471366,
+          "carrier": "EV",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "MEM",
+          "dest_lat": 35.066667,
+          "dest_lon": -89.966667,
+          "flight_count": 227,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: EV\nFrom EWR \u2192 MEM\nAvg Arr Delay: 6.92 min\nFlights: 227"
+        },
+        {
+          "avg_arr_delay": 8.406091370558375,
+          "carrier": "EV",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "MHT",
+          "dest_lat": 42.9325,
+          "dest_lon": -71.435556,
+          "flight_count": 197,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: EV\nFrom EWR \u2192 MHT\nAvg Arr Delay: 8.41 min\nFlights: 197"
+        },
+        {
+          "avg_arr_delay": -8.370967741935484,
+          "carrier": "AA",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "MIA",
+          "dest_lat": 25.783333,
+          "dest_lon": -80.266667,
+          "flight_count": 248,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: AA\nFrom EWR \u2192 MIA\nAvg Arr Delay: -8.37 min\nFlights: 248"
+        },
+        {
+          "avg_arr_delay": -6.491279069767442,
+          "carrier": "UA",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "MIA",
+          "dest_lat": 25.783333,
+          "dest_lon": -80.266667,
+          "flight_count": 344,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: UA\nFrom EWR \u2192 MIA\nAvg Arr Delay: -6.49 min\nFlights: 344"
+        },
+        {
+          "avg_arr_delay": 18.533333333333335,
+          "carrier": "EV",
+          "color": [
+            255,
+            149,
+            0
+          ],
+          "dest": "MKE",
+          "dest_lat": 42.95,
+          "dest_lon": -87.9,
+          "flight_count": 255,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: EV\nFrom EWR \u2192 MKE\nAvg Arr Delay: 18.53 min\nFlights: 255"
+        },
+        {
+          "avg_arr_delay": 11.166666666666666,
+          "carrier": "EV",
+          "color": [
+            255,
+            149,
+            0
+          ],
+          "dest": "MSN",
+          "dest_lat": 43.139722,
+          "dest_lon": -89.3375,
+          "flight_count": 90,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: EV\nFrom EWR \u2192 MSN\nAvg Arr Delay: 11.17 min\nFlights: 90"
+        },
+        {
+          "avg_arr_delay": -5.568181818181818,
+          "carrier": "9E",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "MSP",
+          "dest_lat": 44.883333,
+          "dest_lon": -93.216944,
+          "flight_count": 88,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: 9E\nFrom EWR \u2192 MSP\nAvg Arr Delay: -5.57 min\nFlights: 88"
+        },
+        {
+          "avg_arr_delay": 0.8201438848920863,
+          "carrier": "DL",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "MSP",
+          "dest_lat": 44.883333,
+          "dest_lon": -93.216944,
+          "flight_count": 139,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: DL\nFrom EWR \u2192 MSP\nAvg Arr Delay: 0.82 min\nFlights: 139"
+        },
+        {
+          "avg_arr_delay": 2.957894736842105,
+          "carrier": "EV",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "MSP",
+          "dest_lat": 44.883333,
+          "dest_lon": -93.216944,
+          "flight_count": 475,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: EV\nFrom EWR \u2192 MSP\nAvg Arr Delay: 2.96 min\nFlights: 475"
+        },
+        {
+          "avg_arr_delay": -2.0,
+          "carrier": "OO",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "MSP",
+          "dest_lat": 44.883333,
+          "dest_lon": -93.216944,
+          "flight_count": 4,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: OO\nFrom EWR \u2192 MSP\nAvg Arr Delay: -2.0 min\nFlights: 4"
+        },
+        {
+          "avg_arr_delay": -2.0,
+          "carrier": "UA",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "MSP",
+          "dest_lat": 44.883333,
+          "dest_lon": -93.216944,
+          "flight_count": 1,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: UA\nFrom EWR \u2192 MSP\nAvg Arr Delay: -2.0 min\nFlights: 1"
+        },
+        {
+          "avg_arr_delay": -2.2594594594594595,
+          "carrier": "EV",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "MSY",
+          "dest_lat": 29.993333,
+          "dest_lon": -90.258056,
+          "flight_count": 185,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: EV\nFrom EWR \u2192 MSY\nAvg Arr Delay: -2.26 min\nFlights: 185"
+        },
+        {
+          "avg_arr_delay": -15.510204081632653,
+          "carrier": "UA",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "MSY",
+          "dest_lat": 29.993333,
+          "dest_lon": -90.258056,
+          "flight_count": 98,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: UA\nFrom EWR \u2192 MSY\nAvg Arr Delay: -15.51 min\nFlights: 98"
+        },
+        {
+          "avg_arr_delay": -0.5934065934065934,
+          "carrier": "WN",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "MSY",
+          "dest_lat": 29.993333,
+          "dest_lon": -90.258056,
+          "flight_count": 91,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: WN\nFrom EWR \u2192 MSY\nAvg Arr Delay: -0.59 min\nFlights: 91"
+        },
+        {
+          "avg_arr_delay": 13.931818181818182,
+          "carrier": "EV",
+          "color": [
+            255,
+            149,
+            0
+          ],
+          "dest": "OKC",
+          "dest_lat": 35.393056,
+          "dest_lon": -97.600833,
+          "flight_count": 88,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: EV\nFrom EWR \u2192 OKC\nAvg Arr Delay: 13.93 min\nFlights: 88"
+        },
+        {
+          "avg_arr_delay": -1.1951219512195121,
+          "carrier": "EV",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "OMA",
+          "dest_lat": 41.3,
+          "dest_lon": -95.9,
+          "flight_count": 205,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: EV\nFrom EWR \u2192 OMA\nAvg Arr Delay: -1.2 min\nFlights: 205"
+        },
+        {
+          "avg_arr_delay": 7.270142180094787,
+          "carrier": "MQ",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "ORD",
+          "dest_lat": 41.978611,
+          "dest_lon": -87.904722,
+          "flight_count": 422,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: MQ\nFrom EWR \u2192 ORD\nAvg Arr Delay: 7.27 min\nFlights: 422"
+        },
+        {
+          "avg_arr_delay": -1.8396584440227703,
+          "carrier": "UA",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "ORD",
+          "dest_lat": 41.978611,
+          "dest_lon": -87.904722,
+          "flight_count": 1054,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: UA\nFrom EWR \u2192 ORD\nAvg Arr Delay: -1.84 min\nFlights: 1054"
+        },
+        {
+          "avg_arr_delay": -2.556603773584906,
+          "carrier": "EV",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "ORF",
+          "dest_lat": 36.9,
+          "dest_lon": -76.2,
+          "flight_count": 106,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: EV\nFrom EWR \u2192 ORF\nAvg Arr Delay: -2.56 min\nFlights: 106"
+        },
+        {
+          "avg_arr_delay": 1.7227722772277227,
+          "carrier": "B6",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "PBI",
+          "dest_lat": 26.683056,
+          "dest_lon": -80.095556,
+          "flight_count": 101,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: B6\nFrom EWR \u2192 PBI\nAvg Arr Delay: 1.72 min\nFlights: 101"
+        },
+        {
+          "avg_arr_delay": -2.53185595567867,
+          "carrier": "UA",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "PBI",
+          "dest_lat": 26.683056,
+          "dest_lon": -80.095556,
+          "flight_count": 361,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: UA\nFrom EWR \u2192 PBI\nAvg Arr Delay: -2.53 min\nFlights: 361"
+        },
+        {
+          "avg_arr_delay": -10.823863636363637,
+          "carrier": "UA",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "PDX",
+          "dest_lat": 45.588611,
+          "dest_lon": -122.5975,
+          "flight_count": 176,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: UA\nFrom EWR \u2192 PDX\nAvg Arr Delay: -10.82 min\nFlights: 176"
+        },
+        {
+          "avg_arr_delay": 1.710144927536232,
+          "carrier": "UA",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "PHX",
+          "dest_lat": 33.433333,
+          "dest_lon": -112.033333,
+          "flight_count": 276,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: UA\nFrom EWR \u2192 PHX\nAvg Arr Delay: 1.71 min\nFlights: 276"
+        },
+        {
+          "avg_arr_delay": -0.6472868217054264,
+          "carrier": "US",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "PHX",
+          "dest_lat": 33.433333,
+          "dest_lon": -112.033333,
+          "flight_count": 258,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: US\nFrom EWR \u2192 PHX\nAvg Arr Delay: -0.65 min\nFlights: 258"
+        },
+        {
+          "avg_arr_delay": 5.395604395604396,
+          "carrier": "WN",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "PHX",
+          "dest_lat": 33.433333,
+          "dest_lon": -112.033333,
+          "flight_count": 91,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: WN\nFrom EWR \u2192 PHX\nAvg Arr Delay: 5.4 min\nFlights: 91"
+        },
+        {
+          "avg_arr_delay": -6.098360655737705,
+          "carrier": "EV",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "PIT",
+          "dest_lat": 40.491389,
+          "dest_lon": -80.232778,
+          "flight_count": 122,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: EV\nFrom EWR \u2192 PIT\nAvg Arr Delay: -6.1 min\nFlights: 122"
+        },
+        {
+          "avg_arr_delay": 1.5405405405405406,
+          "carrier": "EV",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "PVD",
+          "dest_lat": 41.733333,
+          "dest_lon": -71.433333,
+          "flight_count": 74,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: EV\nFrom EWR \u2192 PVD\nAvg Arr Delay: 1.54 min\nFlights: 74"
+        },
+        {
+          "avg_arr_delay": 14.972602739726028,
+          "carrier": "EV",
+          "color": [
+            255,
+            149,
+            0
+          ],
+          "dest": "PWM",
+          "dest_lat": 43.65,
+          "dest_lon": -70.3,
+          "flight_count": 73,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: EV\nFrom EWR \u2192 PWM\nAvg Arr Delay: 14.97 min\nFlights: 73"
+        },
+        {
+          "avg_arr_delay": 5.095744680851064,
+          "carrier": "EV",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "RDU",
+          "dest_lat": 35.877778,
+          "dest_lon": -78.7875,
+          "flight_count": 282,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: EV\nFrom EWR \u2192 RDU\nAvg Arr Delay: 5.1 min\nFlights: 282"
+        },
+        {
+          "avg_arr_delay": 11.125925925925927,
+          "carrier": "EV",
+          "color": [
+            255,
+            149,
+            0
+          ],
+          "dest": "RIC",
+          "dest_lat": 37.5,
+          "dest_lon": -77.316667,
+          "flight_count": 405,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: EV\nFrom EWR \u2192 RIC\nAvg Arr Delay: 11.13 min\nFlights: 405"
+        },
+        {
+          "avg_arr_delay": 2.834862385321101,
+          "carrier": "EV",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "ROC",
+          "dest_lat": 43.118889,
+          "dest_lon": -77.6725,
+          "flight_count": 109,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: EV\nFrom EWR \u2192 ROC\nAvg Arr Delay: 2.83 min\nFlights: 109"
+        },
+        {
+          "avg_arr_delay": -13.340659340659341,
+          "carrier": "B6",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "RSW",
+          "dest_lat": 26.542222,
+          "dest_lon": -81.755278,
+          "flight_count": 91,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: B6\nFrom EWR \u2192 RSW\nAvg Arr Delay: -13.34 min\nFlights: 91"
+        },
+        {
+          "avg_arr_delay": -7.978378378378379,
+          "carrier": "UA",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "RSW",
+          "dest_lat": 26.542222,
+          "dest_lon": -81.755278,
+          "flight_count": 185,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: UA\nFrom EWR \u2192 RSW\nAvg Arr Delay: -7.98 min\nFlights: 185"
+        },
+        {
+          "avg_arr_delay": -0.8871595330739299,
+          "carrier": "UA",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "SAN",
+          "dest_lat": 32.733333,
+          "dest_lon": -117.183333,
+          "flight_count": 257,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: UA\nFrom EWR \u2192 SAN\nAvg Arr Delay: -0.89 min\nFlights: 257"
+        },
+        {
+          "avg_arr_delay": -0.875,
+          "carrier": "UA",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "SAT",
+          "dest_lat": 29.533333,
+          "dest_lon": -98.466667,
+          "flight_count": 80,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: UA\nFrom EWR \u2192 SAT\nAvg Arr Delay: -0.88 min\nFlights: 80"
+        },
+        {
+          "avg_arr_delay": 0.8304093567251462,
+          "carrier": "EV",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "SAV",
+          "dest_lat": 32.133333,
+          "dest_lon": -81.2,
+          "flight_count": 171,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: EV\nFrom EWR \u2192 SAV\nAvg Arr Delay: 0.83 min\nFlights: 171"
+        },
+        {
+          "avg_arr_delay": -7.333333333333333,
+          "carrier": "EV",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "SBN",
+          "dest_lat": 41.7,
+          "dest_lon": -86.316667,
+          "flight_count": 3,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: EV\nFrom EWR \u2192 SBN\nAvg Arr Delay: -7.33 min\nFlights: 3"
+        },
+        {
+          "avg_arr_delay": 2.532710280373832,
+          "carrier": "EV",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "SDF",
+          "dest_lat": 38.174444,
+          "dest_lon": -85.736111,
+          "flight_count": 214,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: EV\nFrom EWR \u2192 SDF\nAvg Arr Delay: 2.53 min\nFlights: 214"
+        },
+        {
+          "avg_arr_delay": -24.5,
+          "carrier": "AS",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "SEA",
+          "dest_lat": 47.448889,
+          "dest_lon": -122.309444,
+          "flight_count": 174,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: AS\nFrom EWR \u2192 SEA\nAvg Arr Delay: -24.5 min\nFlights: 174"
+        },
+        {
+          "avg_arr_delay": 0.6162361623616236,
+          "carrier": "UA",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "SEA",
+          "dest_lat": 47.448889,
+          "dest_lon": -122.309444,
+          "flight_count": 271,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: UA\nFrom EWR \u2192 SEA\nAvg Arr Delay: 0.62 min\nFlights: 271"
+        },
+        {
+          "avg_arr_delay": -3.8528209321340965,
+          "carrier": "UA",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "SFO",
+          "dest_lat": 37.618889,
+          "dest_lon": -122.375,
+          "flight_count": 1223,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: UA\nFrom EWR \u2192 SFO\nAvg Arr Delay: -3.85 min\nFlights: 1223"
+        },
+        {
+          "avg_arr_delay": -11.008130081300813,
+          "carrier": "VX",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "SFO",
+          "dest_lat": 37.618889,
+          "dest_lon": -122.375,
+          "flight_count": 246,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: VX\nFrom EWR \u2192 SFO\nAvg Arr Delay: -11.01 min\nFlights: 246"
+        },
+        {
+          "avg_arr_delay": -9.31868131868132,
+          "carrier": "B6",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "SJU",
+          "dest_lat": NaN,
+          "dest_lon": NaN,
+          "flight_count": 91,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: B6\nFrom EWR \u2192 SJU\nAvg Arr Delay: -9.32 min\nFlights: 91"
+        },
+        {
+          "avg_arr_delay": -3.934065934065934,
+          "carrier": "UA",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "SJU",
+          "dest_lat": NaN,
+          "dest_lon": NaN,
+          "flight_count": 91,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: UA\nFrom EWR \u2192 SJU\nAvg Arr Delay: -3.93 min\nFlights: 91"
+        },
+        {
+          "avg_arr_delay": 5.435294117647059,
+          "carrier": "DL",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "SLC",
+          "dest_lat": 40.788333,
+          "dest_lon": -111.966667,
+          "flight_count": 85,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: DL\nFrom EWR \u2192 SLC\nAvg Arr Delay: 5.44 min\nFlights: 85"
+        },
+        {
+          "avg_arr_delay": -8.552173913043479,
+          "carrier": "UA",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "SNA",
+          "dest_lat": 33.666667,
+          "dest_lon": -117.866667,
+          "flight_count": 230,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: UA\nFrom EWR \u2192 SNA\nAvg Arr Delay: -8.55 min\nFlights: 230"
+        },
+        {
+          "avg_arr_delay": 3.5359477124183005,
+          "carrier": "EV",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "STL",
+          "dest_lat": 38.748611,
+          "dest_lon": -90.37,
+          "flight_count": 459,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: EV\nFrom EWR \u2192 STL\nAvg Arr Delay: 3.54 min\nFlights: 459"
+        },
+        {
+          "avg_arr_delay": -22.0,
+          "carrier": "UA",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "STL",
+          "dest_lat": 38.748611,
+          "dest_lon": -90.37,
+          "flight_count": 1,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: UA\nFrom EWR \u2192 STL\nAvg Arr Delay: -22.0 min\nFlights: 1"
+        },
+        {
+          "avg_arr_delay": 6.813253012048193,
+          "carrier": "WN",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "STL",
+          "dest_lat": 38.748611,
+          "dest_lon": -90.37,
+          "flight_count": 166,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: WN\nFrom EWR \u2192 STL\nAvg Arr Delay: 6.81 min\nFlights: 166"
+        },
+        {
+          "avg_arr_delay": -8.882352941176471,
+          "carrier": "UA",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "STT",
+          "dest_lat": NaN,
+          "dest_lon": NaN,
+          "flight_count": 17,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: UA\nFrom EWR \u2192 STT\nAvg Arr Delay: -8.88 min\nFlights: 17"
+        },
+        {
+          "avg_arr_delay": 1.3846153846153846,
+          "carrier": "EV",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "SYR",
+          "dest_lat": 43.116667,
+          "dest_lon": -76.116667,
+          "flight_count": 13,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: EV\nFrom EWR \u2192 SYR\nAvg Arr Delay: 1.38 min\nFlights: 13"
+        },
+        {
+          "avg_arr_delay": -5.923076923076923,
+          "carrier": "B6",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "TPA",
+          "dest_lat": 27.975556,
+          "dest_lon": -82.533056,
+          "flight_count": 91,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: B6\nFrom EWR \u2192 TPA\nAvg Arr Delay: -5.92 min\nFlights: 91"
+        },
+        {
+          "avg_arr_delay": -3.0428893905191874,
+          "carrier": "UA",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "TPA",
+          "dest_lat": 27.975556,
+          "dest_lon": -82.533056,
+          "flight_count": 443,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: UA\nFrom EWR \u2192 TPA\nAvg Arr Delay: -3.04 min\nFlights: 443"
+        },
+        {
+          "avg_arr_delay": 12.43421052631579,
+          "carrier": "EV",
+          "color": [
+            255,
+            149,
+            0
+          ],
+          "dest": "TUL",
+          "dest_lat": 36.198333,
+          "dest_lon": -95.888056,
+          "flight_count": 76,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: EV\nFrom EWR \u2192 TUL\nAvg Arr Delay: 12.43 min\nFlights: 76"
+        },
+        {
+          "avg_arr_delay": 9.354430379746836,
+          "carrier": "EV",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "TYS",
+          "dest_lat": 35.95,
+          "dest_lon": -83.916667,
+          "flight_count": 79,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: EV\nFrom EWR \u2192 TYS\nAvg Arr Delay: 9.35 min\nFlights: 79"
+        },
+        {
+          "avg_arr_delay": 8.285714285714286,
+          "carrier": "EV",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "XNA",
+          "dest_lat": 36.281667,
+          "dest_lon": -94.306667,
+          "flight_count": 63,
+          "origin": "EWR",
+          "origin_lat": 40.6925,
+          "origin_lon": -74.168611,
+          "tooltip_text": "Carrier: EV\nFrom EWR \u2192 XNA\nAvg Arr Delay: 8.29 min\nFlights: 63"
+        },
+        {
+          "avg_arr_delay": -2.67032967032967,
+          "carrier": "B6",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "ABQ",
+          "dest_lat": 35.040278,
+          "dest_lon": -106.609167,
+          "flight_count": 91,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: B6\nFrom JFK \u2192 ABQ\nAvg Arr Delay: -2.67 min\nFlights: 91"
+        },
+        {
+          "avg_arr_delay": 0.3088235294117647,
+          "carrier": "B6",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "ACK",
+          "dest_lat": 41.266667,
+          "dest_lon": -70.066667,
+          "flight_count": 68,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: B6\nFrom JFK \u2192 ACK\nAvg Arr Delay: 0.31 min\nFlights: 68"
+        },
+        {
+          "avg_arr_delay": 0.910828025477707,
+          "carrier": "DL",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "ATL",
+          "dest_lat": 33.636667,
+          "dest_lon": -84.428056,
+          "flight_count": 471,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: DL\nFrom JFK \u2192 ATL\nAvg Arr Delay: 0.91 min\nFlights: 471"
+        },
+        {
+          "avg_arr_delay": 128.0,
+          "carrier": "EV",
+          "color": [
+            255,
+            0,
+            0
+          ],
+          "dest": "ATL",
+          "dest_lat": 33.636667,
+          "dest_lon": -84.428056,
+          "flight_count": 1,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: EV\nFrom JFK \u2192 ATL\nAvg Arr Delay: 128.0 min\nFlights: 1"
+        },
+        {
+          "avg_arr_delay": 3.1538461538461537,
+          "carrier": "AA",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "AUS",
+          "dest_lat": 30.194444,
+          "dest_lon": -97.67,
+          "flight_count": 91,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: AA\nFrom JFK \u2192 AUS\nAvg Arr Delay: 3.15 min\nFlights: 91"
+        },
+        {
+          "avg_arr_delay": -6.967213114754099,
+          "carrier": "B6",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "AUS",
+          "dest_lat": 30.194444,
+          "dest_lon": -97.67,
+          "flight_count": 183,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: B6\nFrom JFK \u2192 AUS\nAvg Arr Delay: -6.97 min\nFlights: 183"
+        },
+        {
+          "avg_arr_delay": -10.021978021978022,
+          "carrier": "DL",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "AUS",
+          "dest_lat": 30.194444,
+          "dest_lon": -97.67,
+          "flight_count": 91,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: DL\nFrom JFK \u2192 AUS\nAvg Arr Delay: -10.02 min\nFlights: 91"
+        },
+        {
+          "avg_arr_delay": -3.25,
+          "carrier": "9E",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "BNA",
+          "dest_lat": 36.124444,
+          "dest_lon": -86.678056,
+          "flight_count": 88,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: 9E\nFrom JFK \u2192 BNA\nAvg Arr Delay: -3.25 min\nFlights: 88"
+        },
+        {
+          "avg_arr_delay": -6.3977272727272725,
+          "carrier": "MQ",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "BNA",
+          "dest_lat": 36.124444,
+          "dest_lon": -86.678056,
+          "flight_count": 88,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: MQ\nFrom JFK \u2192 BNA\nAvg Arr Delay: -6.4 min\nFlights: 88"
+        },
+        {
+          "avg_arr_delay": -2.3372093023255816,
+          "carrier": "9E",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "BOS",
+          "dest_lat": 42.363056,
+          "dest_lon": -71.0,
+          "flight_count": 86,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: 9E\nFrom JFK \u2192 BOS\nAvg Arr Delay: -2.34 min\nFlights: 86"
+        },
+        {
+          "avg_arr_delay": -3.863509749303621,
+          "carrier": "AA",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "BOS",
+          "dest_lat": 42.363056,
+          "dest_lon": -71.0,
+          "flight_count": 359,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: AA\nFrom JFK \u2192 BOS\nAvg Arr Delay: -3.86 min\nFlights: 359"
+        },
+        {
+          "avg_arr_delay": -1.861154446177847,
+          "carrier": "B6",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "BOS",
+          "dest_lat": 42.363056,
+          "dest_lon": -71.0,
+          "flight_count": 641,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: B6\nFrom JFK \u2192 BOS\nAvg Arr Delay: -1.86 min\nFlights: 641"
+        },
+        {
+          "avg_arr_delay": -7.4222222222222225,
+          "carrier": "DL",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "BOS",
+          "dest_lat": 42.363056,
+          "dest_lon": -71.0,
+          "flight_count": 360,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: DL\nFrom JFK \u2192 BOS\nAvg Arr Delay: -7.42 min\nFlights: 360"
+        },
+        {
+          "avg_arr_delay": -0.6176470588235294,
+          "carrier": "B6",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "BQN",
+          "dest_lat": NaN,
+          "dest_lon": NaN,
+          "flight_count": 102,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: B6\nFrom JFK \u2192 BQN\nAvg Arr Delay: -0.62 min\nFlights: 102"
+        },
+        {
+          "avg_arr_delay": 0.9436201780415431,
+          "carrier": "B6",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "BTV",
+          "dest_lat": 44.471944,
+          "dest_lon": -73.153333,
+          "flight_count": 337,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: B6\nFrom JFK \u2192 BTV\nAvg Arr Delay: 0.94 min\nFlights: 337"
+        },
+        {
+          "avg_arr_delay": 0.4816326530612245,
+          "carrier": "9E",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "BUF",
+          "dest_lat": 42.940556,
+          "dest_lon": -78.732222,
+          "flight_count": 245,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: 9E\nFrom JFK \u2192 BUF\nAvg Arr Delay: 0.48 min\nFlights: 245"
+        },
+        {
+          "avg_arr_delay": 0.06950354609929078,
+          "carrier": "B6",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "BUF",
+          "dest_lat": 42.940556,
+          "dest_lon": -78.732222,
+          "flight_count": 705,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: B6\nFrom JFK \u2192 BUF\nAvg Arr Delay: 0.07 min\nFlights: 705"
+        },
+        {
+          "avg_arr_delay": -2.978021978021978,
+          "carrier": "B6",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "BUR",
+          "dest_lat": 34.2,
+          "dest_lon": -118.35,
+          "flight_count": 91,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: B6\nFrom JFK \u2192 BUR\nAvg Arr Delay: -2.98 min\nFlights: 91"
+        },
+        {
+          "avg_arr_delay": -9.412935323383085,
+          "carrier": "9E",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "BWI",
+          "dest_lat": 39.175278,
+          "dest_lon": -76.668333,
+          "flight_count": 201,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: 9E\nFrom JFK \u2192 BWI\nAvg Arr Delay: -9.41 min\nFlights: 201"
+        },
+        {
+          "avg_arr_delay": -4.352941176470588,
+          "carrier": "MQ",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "BWI",
+          "dest_lat": 39.175278,
+          "dest_lon": -76.668333,
+          "flight_count": 85,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: MQ\nFrom JFK \u2192 BWI\nAvg Arr Delay: -4.35 min\nFlights: 85"
+        },
+        {
+          "avg_arr_delay": -1.9444444444444444,
+          "carrier": "9E",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "CHS",
+          "dest_lat": 32.898611,
+          "dest_lon": -80.040556,
+          "flight_count": 90,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: 9E\nFrom JFK \u2192 CHS\nAvg Arr Delay: -1.94 min\nFlights: 90"
+        },
+        {
+          "avg_arr_delay": -0.4585635359116022,
+          "carrier": "B6",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "CHS",
+          "dest_lat": 32.898611,
+          "dest_lon": -80.040556,
+          "flight_count": 181,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: B6\nFrom JFK \u2192 CHS\nAvg Arr Delay: -0.46 min\nFlights: 181"
+        },
+        {
+          "avg_arr_delay": 7.0,
+          "carrier": "9E",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "CLE",
+          "dest_lat": 41.416667,
+          "dest_lon": -81.85,
+          "flight_count": 6,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: 9E\nFrom JFK \u2192 CLE\nAvg Arr Delay: 7.0 min\nFlights: 6"
+        },
+        {
+          "avg_arr_delay": 4.067415730337078,
+          "carrier": "MQ",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "CLE",
+          "dest_lat": 41.416667,
+          "dest_lon": -81.85,
+          "flight_count": 89,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: MQ\nFrom JFK \u2192 CLE\nAvg Arr Delay: 4.07 min\nFlights: 89"
+        },
+        {
+          "avg_arr_delay": 6.787878787878788,
+          "carrier": "9E",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "CLT",
+          "dest_lat": 35.216667,
+          "dest_lon": -80.933333,
+          "flight_count": 33,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: 9E\nFrom JFK \u2192 CLT\nAvg Arr Delay: 6.79 min\nFlights: 33"
+        },
+        {
+          "avg_arr_delay": -2.138121546961326,
+          "carrier": "B6",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "CLT",
+          "dest_lat": 35.216667,
+          "dest_lon": -80.933333,
+          "flight_count": 181,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: B6\nFrom JFK \u2192 CLT\nAvg Arr Delay: -2.14 min\nFlights: 181"
+        },
+        {
+          "avg_arr_delay": -3.0916030534351147,
+          "carrier": "US",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "CLT",
+          "dest_lat": 35.216667,
+          "dest_lon": -80.933333,
+          "flight_count": 524,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: US\nFrom JFK \u2192 CLT\nAvg Arr Delay: -3.09 min\nFlights: 524"
+        },
+        {
+          "avg_arr_delay": 12.76271186440678,
+          "carrier": "MQ",
+          "color": [
+            255,
+            149,
+            0
+          ],
+          "dest": "CMH",
+          "dest_lat": 40.0,
+          "dest_lon": -82.883333,
+          "flight_count": 177,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: MQ\nFrom JFK \u2192 CMH\nAvg Arr Delay: 12.76 min\nFlights: 177"
+        },
+        {
+          "avg_arr_delay": -2.593220338983051,
+          "carrier": "9E",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "CVG",
+          "dest_lat": 39.048889,
+          "dest_lon": -84.667778,
+          "flight_count": 177,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: 9E\nFrom JFK \u2192 CVG\nAvg Arr Delay: -2.59 min\nFlights: 177"
+        },
+        {
+          "avg_arr_delay": 17.42222222222222,
+          "carrier": "MQ",
+          "color": [
+            255,
+            149,
+            0
+          ],
+          "dest": "CVG",
+          "dest_lat": 39.048889,
+          "dest_lon": -84.667778,
+          "flight_count": 90,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: MQ\nFrom JFK \u2192 CVG\nAvg Arr Delay: 17.42 min\nFlights: 90"
+        },
+        {
+          "avg_arr_delay": -6.857707509881423,
+          "carrier": "9E",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "DCA",
+          "dest_lat": 38.851944,
+          "dest_lon": -77.037778,
+          "flight_count": 253,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: 9E\nFrom JFK \u2192 DCA\nAvg Arr Delay: -6.86 min\nFlights: 253"
+        },
+        {
+          "avg_arr_delay": 4.086206896551724,
+          "carrier": "MQ",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "DCA",
+          "dest_lat": 38.851944,
+          "dest_lon": -77.037778,
+          "flight_count": 522,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: MQ\nFrom JFK \u2192 DCA\nAvg Arr Delay: 4.09 min\nFlights: 522"
+        },
+        {
+          "avg_arr_delay": -2.6705882352941175,
+          "carrier": "B6",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "DEN",
+          "dest_lat": 39.861667,
+          "dest_lon": -104.673056,
+          "flight_count": 85,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: B6\nFrom JFK \u2192 DEN\nAvg Arr Delay: -2.67 min\nFlights: 85"
+        },
+        {
+          "avg_arr_delay": -0.7142857142857143,
+          "carrier": "DL",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "DEN",
+          "dest_lat": 39.861667,
+          "dest_lon": -104.673056,
+          "flight_count": 91,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: DL\nFrom JFK \u2192 DEN\nAvg Arr Delay: -0.71 min\nFlights: 91"
+        },
+        {
+          "avg_arr_delay": 3.0,
+          "carrier": "9E",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "DFW",
+          "dest_lat": 32.896944,
+          "dest_lon": -97.038056,
+          "flight_count": 89,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: 9E\nFrom JFK \u2192 DFW\nAvg Arr Delay: 3.0 min\nFlights: 89"
+        },
+        {
+          "avg_arr_delay": -2.0,
+          "carrier": "AA",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "DFW",
+          "dest_lat": 32.896944,
+          "dest_lon": -97.038056,
+          "flight_count": 91,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: AA\nFrom JFK \u2192 DFW\nAvg Arr Delay: -2.0 min\nFlights: 91"
+        },
+        {
+          "avg_arr_delay": -6.892045454545454,
+          "carrier": "9E",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "DTW",
+          "dest_lat": 42.2125,
+          "dest_lon": -83.353333,
+          "flight_count": 176,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: 9E\nFrom JFK \u2192 DTW\nAvg Arr Delay: -6.89 min\nFlights: 176"
+        },
+        {
+          "avg_arr_delay": -0.24175824175824176,
+          "carrier": "DL",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "DTW",
+          "dest_lat": 42.2125,
+          "dest_lon": -83.353333,
+          "flight_count": 91,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: DL\nFrom JFK \u2192 DTW\nAvg Arr Delay: -0.24 min\nFlights: 91"
+        },
+        {
+          "avg_arr_delay": -4.590690208667737,
+          "carrier": "B6",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "FLL",
+          "dest_lat": 26.0725,
+          "dest_lon": -80.152778,
+          "flight_count": 623,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: B6\nFrom JFK \u2192 FLL\nAvg Arr Delay: -4.59 min\nFlights: 623"
+        },
+        {
+          "avg_arr_delay": -13.874074074074073,
+          "carrier": "DL",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "FLL",
+          "dest_lat": 26.0725,
+          "dest_lon": -80.152778,
+          "flight_count": 270,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: DL\nFrom JFK \u2192 FLL\nAvg Arr Delay: -13.87 min\nFlights: 270"
+        },
+        {
+          "avg_arr_delay": -10.28169014084507,
+          "carrier": "HA",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "HNL",
+          "dest_lat": 21.333333,
+          "dest_lon": -157.933333,
+          "flight_count": 71,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: HA\nFrom JFK \u2192 HNL\nAvg Arr Delay: -10.28 min\nFlights: 71"
+        },
+        {
+          "avg_arr_delay": -3.348314606741573,
+          "carrier": "B6",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "HOU",
+          "dest_lat": 29.645556,
+          "dest_lon": -95.278889,
+          "flight_count": 178,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: B6\nFrom JFK \u2192 HOU\nAvg Arr Delay: -3.35 min\nFlights: 178"
+        },
+        {
+          "avg_arr_delay": -3.0,
+          "carrier": "9E",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "IAD",
+          "dest_lat": 38.944444,
+          "dest_lon": -77.455833,
+          "flight_count": 136,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: 9E\nFrom JFK \u2192 IAD\nAvg Arr Delay: -3.0 min\nFlights: 136"
+        },
+        {
+          "avg_arr_delay": 3.8392857142857144,
+          "carrier": "B6",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "IAD",
+          "dest_lat": 38.944444,
+          "dest_lon": -77.455833,
+          "flight_count": 168,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: B6\nFrom JFK \u2192 IAD\nAvg Arr Delay: 3.84 min\nFlights: 168"
+        },
+        {
+          "avg_arr_delay": 7.567723342939481,
+          "carrier": "EV",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "IAD",
+          "dest_lat": 38.944444,
+          "dest_lon": -77.455833,
+          "flight_count": 347,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: EV\nFrom JFK \u2192 IAD\nAvg Arr Delay: 7.57 min\nFlights: 347"
+        },
+        {
+          "avg_arr_delay": 2.659340659340659,
+          "carrier": "AA",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "IAH",
+          "dest_lat": 29.984444,
+          "dest_lon": -95.341389,
+          "flight_count": 91,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: AA\nFrom JFK \u2192 IAH\nAvg Arr Delay: 2.66 min\nFlights: 91"
+        },
+        {
+          "avg_arr_delay": -10.393258426966293,
+          "carrier": "9E",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "IND",
+          "dest_lat": 39.717222,
+          "dest_lon": -86.294722,
+          "flight_count": 89,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: 9E\nFrom JFK \u2192 IND\nAvg Arr Delay: -10.39 min\nFlights: 89"
+        },
+        {
+          "avg_arr_delay": 6.311111111111111,
+          "carrier": "MQ",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "IND",
+          "dest_lat": 39.717222,
+          "dest_lon": -86.294722,
+          "flight_count": 90,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: MQ\nFrom JFK \u2192 IND\nAvg Arr Delay: 6.31 min\nFlights: 90"
+        },
+        {
+          "avg_arr_delay": -25.5,
+          "carrier": "9E",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "JAX",
+          "dest_lat": 30.416667,
+          "dest_lon": -81.633333,
+          "flight_count": 28,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: 9E\nFrom JFK \u2192 JAX\nAvg Arr Delay: -25.5 min\nFlights: 28"
+        },
+        {
+          "avg_arr_delay": -4.818548387096774,
+          "carrier": "B6",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "JAX",
+          "dest_lat": 30.416667,
+          "dest_lon": -81.633333,
+          "flight_count": 248,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: B6\nFrom JFK \u2192 JAX\nAvg Arr Delay: -4.82 min\nFlights: 248"
+        },
+        {
+          "avg_arr_delay": 3.9395604395604398,
+          "carrier": "AA",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "LAS",
+          "dest_lat": 36.083333,
+          "dest_lon": -115.166667,
+          "flight_count": 182,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: AA\nFrom JFK \u2192 LAS\nAvg Arr Delay: 3.94 min\nFlights: 182"
+        },
+        {
+          "avg_arr_delay": -0.9554896142433235,
+          "carrier": "B6",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "LAS",
+          "dest_lat": 36.083333,
+          "dest_lon": -115.166667,
+          "flight_count": 337,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: B6\nFrom JFK \u2192 LAS\nAvg Arr Delay: -0.96 min\nFlights: 337"
+        },
+        {
+          "avg_arr_delay": -3.889400921658986,
+          "carrier": "DL",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "LAS",
+          "dest_lat": 36.083333,
+          "dest_lon": -115.166667,
+          "flight_count": 434,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: DL\nFrom JFK \u2192 LAS\nAvg Arr Delay: -3.89 min\nFlights: 434"
+        },
+        {
+          "avg_arr_delay": -5.461538461538462,
+          "carrier": "VX",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "LAS",
+          "dest_lat": 36.083333,
+          "dest_lon": -115.166667,
+          "flight_count": 91,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: VX\nFrom JFK \u2192 LAS\nAvg Arr Delay: -5.46 min\nFlights: 91"
+        },
+        {
+          "avg_arr_delay": -1.9259259259259258,
+          "carrier": "AA",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "LAX",
+          "dest_lat": 33.9425,
+          "dest_lon": -118.407222,
+          "flight_count": 810,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: AA\nFrom JFK \u2192 LAX\nAvg Arr Delay: -1.93 min\nFlights: 810"
+        },
+        {
+          "avg_arr_delay": -2.459584295612009,
+          "carrier": "B6",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "LAX",
+          "dest_lat": 33.9425,
+          "dest_lon": -118.407222,
+          "flight_count": 433,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: B6\nFrom JFK \u2192 LAX\nAvg Arr Delay: -2.46 min\nFlights: 433"
+        },
+        {
+          "avg_arr_delay": -5.567114093959732,
+          "carrier": "DL",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "LAX",
+          "dest_lat": 33.9425,
+          "dest_lon": -118.407222,
+          "flight_count": 596,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: DL\nFrom JFK \u2192 LAX\nAvg Arr Delay: -5.57 min\nFlights: 596"
+        },
+        {
+          "avg_arr_delay": -3.001968503937008,
+          "carrier": "UA",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "LAX",
+          "dest_lat": 33.9425,
+          "dest_lon": -118.407222,
+          "flight_count": 508,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: UA\nFrom JFK \u2192 LAX\nAvg Arr Delay: -3.0 min\nFlights: 508"
+        },
+        {
+          "avg_arr_delay": -0.6244239631336406,
+          "carrier": "VX",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "LAX",
+          "dest_lat": 33.9425,
+          "dest_lon": -118.407222,
+          "flight_count": 434,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: VX\nFrom JFK \u2192 LAX\nAvg Arr Delay: -0.62 min\nFlights: 434"
+        },
+        {
+          "avg_arr_delay": -6.810457516339869,
+          "carrier": "B6",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "LGB",
+          "dest_lat": 33.816667,
+          "dest_lon": -118.15,
+          "flight_count": 153,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: B6\nFrom JFK \u2192 LGB\nAvg Arr Delay: -6.81 min\nFlights: 153"
+        },
+        {
+          "avg_arr_delay": -4.919540229885057,
+          "carrier": "9E",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "MCI",
+          "dest_lat": 39.291667,
+          "dest_lon": -94.730556,
+          "flight_count": 87,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: 9E\nFrom JFK \u2192 MCI\nAvg Arr Delay: -4.92 min\nFlights: 87"
+        },
+        {
+          "avg_arr_delay": 0.07142857142857142,
+          "carrier": "AA",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "MCO",
+          "dest_lat": 28.429444,
+          "dest_lon": -81.308889,
+          "flight_count": 182,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: AA\nFrom JFK \u2192 MCO\nAvg Arr Delay: 0.07 min\nFlights: 182"
+        },
+        {
+          "avg_arr_delay": -4.139566395663957,
+          "carrier": "B6",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "MCO",
+          "dest_lat": 28.429444,
+          "dest_lon": -81.308889,
+          "flight_count": 738,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: B6\nFrom JFK \u2192 MCO\nAvg Arr Delay: -4.14 min\nFlights: 738"
+        },
+        {
+          "avg_arr_delay": -9.453781512605042,
+          "carrier": "DL",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "MCO",
+          "dest_lat": 28.429444,
+          "dest_lon": -81.308889,
+          "flight_count": 357,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: DL\nFrom JFK \u2192 MCO\nAvg Arr Delay: -9.45 min\nFlights: 357"
+        },
+        {
+          "avg_arr_delay": -11.058500914076783,
+          "carrier": "AA",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "MIA",
+          "dest_lat": 25.783333,
+          "dest_lon": -80.266667,
+          "flight_count": 547,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: AA\nFrom JFK \u2192 MIA\nAvg Arr Delay: -11.06 min\nFlights: 547"
+        },
+        {
+          "avg_arr_delay": -15.427509293680297,
+          "carrier": "DL",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "MIA",
+          "dest_lat": 25.783333,
+          "dest_lon": -80.266667,
+          "flight_count": 269,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: DL\nFrom JFK \u2192 MIA\nAvg Arr Delay: -15.43 min\nFlights: 269"
+        },
+        {
+          "avg_arr_delay": 5.917602996254682,
+          "carrier": "9E",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "MSP",
+          "dest_lat": 44.883333,
+          "dest_lon": -93.216944,
+          "flight_count": 267,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: 9E\nFrom JFK \u2192 MSP\nAvg Arr Delay: 5.92 min\nFlights: 267"
+        },
+        {
+          "avg_arr_delay": -3.0,
+          "carrier": "DL",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "MSP",
+          "dest_lat": 44.883333,
+          "dest_lon": -93.216944,
+          "flight_count": 1,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: DL\nFrom JFK \u2192 MSP\nAvg Arr Delay: -3.0 min\nFlights: 1"
+        },
+        {
+          "avg_arr_delay": -3.824561403508772,
+          "carrier": "9E",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "MSY",
+          "dest_lat": 29.993333,
+          "dest_lon": -90.258056,
+          "flight_count": 171,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: 9E\nFrom JFK \u2192 MSY\nAvg Arr Delay: -3.82 min\nFlights: 171"
+        },
+        {
+          "avg_arr_delay": -5.347280334728033,
+          "carrier": "B6",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "MSY",
+          "dest_lat": 29.993333,
+          "dest_lon": -90.258056,
+          "flight_count": 239,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: B6\nFrom JFK \u2192 MSY\nAvg Arr Delay: -5.35 min\nFlights: 239"
+        },
+        {
+          "avg_arr_delay": -22.0,
+          "carrier": "DL",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "MSY",
+          "dest_lat": 29.993333,
+          "dest_lon": -90.258056,
+          "flight_count": 1,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: DL\nFrom JFK \u2192 MSY\nAvg Arr Delay: -22.0 min\nFlights: 1"
+        },
+        {
+          "avg_arr_delay": 0.3870967741935484,
+          "carrier": "B6",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "MVY",
+          "dest_lat": NaN,
+          "dest_lon": NaN,
+          "flight_count": 31,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: B6\nFrom JFK \u2192 MVY\nAvg Arr Delay: 0.39 min\nFlights: 31"
+        },
+        {
+          "avg_arr_delay": -11.024096385542169,
+          "carrier": "B6",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "OAK",
+          "dest_lat": 37.716667,
+          "dest_lon": -122.216667,
+          "flight_count": 83,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: B6\nFrom JFK \u2192 OAK\nAvg Arr Delay: -11.02 min\nFlights: 83"
+        },
+        {
+          "avg_arr_delay": 1.6810344827586208,
+          "carrier": "9E",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "ORD",
+          "dest_lat": 41.978611,
+          "dest_lon": -87.904722,
+          "flight_count": 232,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: 9E\nFrom JFK \u2192 ORD\nAvg Arr Delay: 1.68 min\nFlights: 232"
+        },
+        {
+          "avg_arr_delay": -4.544444444444444,
+          "carrier": "AA",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "ORD",
+          "dest_lat": 41.978611,
+          "dest_lon": -87.904722,
+          "flight_count": 90,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: AA\nFrom JFK \u2192 ORD\nAvg Arr Delay: -4.54 min\nFlights: 90"
+        },
+        {
+          "avg_arr_delay": 3.957627118644068,
+          "carrier": "B6",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "ORD",
+          "dest_lat": 41.978611,
+          "dest_lon": -87.904722,
+          "flight_count": 236,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: B6\nFrom JFK \u2192 ORD\nAvg Arr Delay: 3.96 min\nFlights: 236"
+        },
+        {
+          "avg_arr_delay": 4.267857142857143,
+          "carrier": "9E",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "ORF",
+          "dest_lat": 36.9,
+          "dest_lon": -76.2,
+          "flight_count": 56,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: 9E\nFrom JFK \u2192 ORF\nAvg Arr Delay: 4.27 min\nFlights: 56"
+        },
+        {
+          "avg_arr_delay": -8.761363636363637,
+          "carrier": "MQ",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "ORF",
+          "dest_lat": 36.9,
+          "dest_lon": -76.2,
+          "flight_count": 88,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: MQ\nFrom JFK \u2192 ORF\nAvg Arr Delay: -8.76 min\nFlights: 88"
+        },
+        {
+          "avg_arr_delay": -0.192090395480226,
+          "carrier": "B6",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "PBI",
+          "dest_lat": 26.683056,
+          "dest_lon": -80.095556,
+          "flight_count": 354,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: B6\nFrom JFK \u2192 PBI\nAvg Arr Delay: -0.19 min\nFlights: 354"
+        },
+        {
+          "avg_arr_delay": -1.1868131868131868,
+          "carrier": "B6",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "PDX",
+          "dest_lat": 45.588611,
+          "dest_lon": -122.5975,
+          "flight_count": 91,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: B6\nFrom JFK \u2192 PDX\nAvg Arr Delay: -1.19 min\nFlights: 91"
+        },
+        {
+          "avg_arr_delay": -5.706521739130435,
+          "carrier": "DL",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "PDX",
+          "dest_lat": 45.588611,
+          "dest_lon": -122.5975,
+          "flight_count": 92,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: DL\nFrom JFK \u2192 PDX\nAvg Arr Delay: -5.71 min\nFlights: 92"
+        },
+        {
+          "avg_arr_delay": -3.789473684210526,
+          "carrier": "9E",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "PHL",
+          "dest_lat": 39.871944,
+          "dest_lon": -75.241111,
+          "flight_count": 152,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: 9E\nFrom JFK \u2192 PHL\nAvg Arr Delay: -3.79 min\nFlights: 152"
+        },
+        {
+          "avg_arr_delay": -1.2637362637362637,
+          "carrier": "B6",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "PHX",
+          "dest_lat": 33.433333,
+          "dest_lon": -112.033333,
+          "flight_count": 91,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: B6\nFrom JFK \u2192 PHX\nAvg Arr Delay: -1.26 min\nFlights: 91"
+        },
+        {
+          "avg_arr_delay": -8.076923076923077,
+          "carrier": "DL",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "PHX",
+          "dest_lat": 33.433333,
+          "dest_lon": -112.033333,
+          "flight_count": 91,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: DL\nFrom JFK \u2192 PHX\nAvg Arr Delay: -8.08 min\nFlights: 91"
+        },
+        {
+          "avg_arr_delay": -8.260317460317461,
+          "carrier": "US",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "PHX",
+          "dest_lat": 33.433333,
+          "dest_lon": -112.033333,
+          "flight_count": 315,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: US\nFrom JFK \u2192 PHX\nAvg Arr Delay: -8.26 min\nFlights: 315"
+        },
+        {
+          "avg_arr_delay": -0.9314285714285714,
+          "carrier": "9E",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "PIT",
+          "dest_lat": 40.491389,
+          "dest_lon": -80.232778,
+          "flight_count": 175,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: 9E\nFrom JFK \u2192 PIT\nAvg Arr Delay: -0.93 min\nFlights: 175"
+        },
+        {
+          "avg_arr_delay": 2.5454545454545454,
+          "carrier": "DL",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "PIT",
+          "dest_lat": 40.491389,
+          "dest_lon": -80.232778,
+          "flight_count": 11,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: DL\nFrom JFK \u2192 PIT\nAvg Arr Delay: 2.55 min\nFlights: 11"
+        },
+        {
+          "avg_arr_delay": 7.8,
+          "carrier": "MQ",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "PIT",
+          "dest_lat": 40.491389,
+          "dest_lon": -80.232778,
+          "flight_count": 90,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: MQ\nFrom JFK \u2192 PIT\nAvg Arr Delay: 7.8 min\nFlights: 90"
+        },
+        {
+          "avg_arr_delay": 1.4333333333333333,
+          "carrier": "B6",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "PSE",
+          "dest_lat": NaN,
+          "dest_lon": NaN,
+          "flight_count": 90,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: B6\nFrom JFK \u2192 PSE\nAvg Arr Delay: 1.43 min\nFlights: 90"
+        },
+        {
+          "avg_arr_delay": -2.9218241042345277,
+          "carrier": "B6",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "PWM",
+          "dest_lat": 43.65,
+          "dest_lon": -70.3,
+          "flight_count": 307,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: B6\nFrom JFK \u2192 PWM\nAvg Arr Delay: -2.92 min\nFlights: 307"
+        },
+        {
+          "avg_arr_delay": -1.687830687830688,
+          "carrier": "9E",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "RDU",
+          "dest_lat": 35.877778,
+          "dest_lon": -78.7875,
+          "flight_count": 189,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: 9E\nFrom JFK \u2192 RDU\nAvg Arr Delay: -1.69 min\nFlights: 189"
+        },
+        {
+          "avg_arr_delay": 2.78021978021978,
+          "carrier": "B6",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "RDU",
+          "dest_lat": 35.877778,
+          "dest_lon": -78.7875,
+          "flight_count": 182,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: B6\nFrom JFK \u2192 RDU\nAvg Arr Delay: 2.78 min\nFlights: 182"
+        },
+        {
+          "avg_arr_delay": 0.3785310734463277,
+          "carrier": "MQ",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "RDU",
+          "dest_lat": 35.877778,
+          "dest_lon": -78.7875,
+          "flight_count": 354,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: MQ\nFrom JFK \u2192 RDU\nAvg Arr Delay: 0.38 min\nFlights: 354"
+        },
+        {
+          "avg_arr_delay": -0.45714285714285713,
+          "carrier": "9E",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "RIC",
+          "dest_lat": 37.5,
+          "dest_lon": -77.316667,
+          "flight_count": 35,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: 9E\nFrom JFK \u2192 RIC\nAvg Arr Delay: -0.46 min\nFlights: 35"
+        },
+        {
+          "avg_arr_delay": -0.75,
+          "carrier": "9E",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "ROC",
+          "dest_lat": 43.118889,
+          "dest_lon": -77.6725,
+          "flight_count": 4,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: 9E\nFrom JFK \u2192 ROC\nAvg Arr Delay: -0.75 min\nFlights: 4"
+        },
+        {
+          "avg_arr_delay": -0.7630057803468208,
+          "carrier": "B6",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "ROC",
+          "dest_lat": 43.118889,
+          "dest_lon": -77.6725,
+          "flight_count": 346,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: B6\nFrom JFK \u2192 ROC\nAvg Arr Delay: -0.76 min\nFlights: 346"
+        },
+        {
+          "avg_arr_delay": -1.7816593886462881,
+          "carrier": "B6",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "RSW",
+          "dest_lat": 26.542222,
+          "dest_lon": -81.755278,
+          "flight_count": 229,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: B6\nFrom JFK \u2192 RSW\nAvg Arr Delay: -1.78 min\nFlights: 229"
+        },
+        {
+          "avg_arr_delay": 12.846153846153847,
+          "carrier": "AA",
+          "color": [
+            255,
+            149,
+            0
+          ],
+          "dest": "SAN",
+          "dest_lat": 32.733333,
+          "dest_lon": -117.183333,
+          "flight_count": 91,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: AA\nFrom JFK \u2192 SAN\nAvg Arr Delay: 12.85 min\nFlights: 91"
+        },
+        {
+          "avg_arr_delay": -3.42603550295858,
+          "carrier": "B6",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "SAN",
+          "dest_lat": 32.733333,
+          "dest_lon": -117.183333,
+          "flight_count": 169,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: B6\nFrom JFK \u2192 SAN\nAvg Arr Delay: -3.43 min\nFlights: 169"
+        },
+        {
+          "avg_arr_delay": -2.6204819277108435,
+          "carrier": "DL",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "SAN",
+          "dest_lat": 32.733333,
+          "dest_lon": -117.183333,
+          "flight_count": 166,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: DL\nFrom JFK \u2192 SAN\nAvg Arr Delay: -2.62 min\nFlights: 166"
+        },
+        {
+          "avg_arr_delay": -5.945054945054945,
+          "carrier": "DL",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "SAT",
+          "dest_lat": 29.533333,
+          "dest_lon": -98.466667,
+          "flight_count": 91,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: DL\nFrom JFK \u2192 SAT\nAvg Arr Delay: -5.95 min\nFlights: 91"
+        },
+        {
+          "avg_arr_delay": -8.219780219780219,
+          "carrier": "AA",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "SEA",
+          "dest_lat": 47.448889,
+          "dest_lon": -122.309444,
+          "flight_count": 91,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: AA\nFrom JFK \u2192 SEA\nAvg Arr Delay: -8.22 min\nFlights: 91"
+        },
+        {
+          "avg_arr_delay": -1.6402877697841727,
+          "carrier": "B6",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "SEA",
+          "dest_lat": 47.448889,
+          "dest_lon": -122.309444,
+          "flight_count": 139,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: B6\nFrom JFK \u2192 SEA\nAvg Arr Delay: -1.64 min\nFlights: 139"
+        },
+        {
+          "avg_arr_delay": -10.714285714285714,
+          "carrier": "DL",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "SEA",
+          "dest_lat": 47.448889,
+          "dest_lon": -122.309444,
+          "flight_count": 301,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: DL\nFrom JFK \u2192 SEA\nAvg Arr Delay: -10.71 min\nFlights: 301"
+        },
+        {
+          "avg_arr_delay": 4.171919770773639,
+          "carrier": "AA",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "SFO",
+          "dest_lat": 37.618889,
+          "dest_lon": -122.375,
+          "flight_count": 349,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: AA\nFrom JFK \u2192 SFO\nAvg Arr Delay: 4.17 min\nFlights: 349"
+        },
+        {
+          "avg_arr_delay": -3.363984674329502,
+          "carrier": "B6",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "SFO",
+          "dest_lat": 37.618889,
+          "dest_lon": -122.375,
+          "flight_count": 261,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: B6\nFrom JFK \u2192 SFO\nAvg Arr Delay: -3.36 min\nFlights: 261"
+        },
+        {
+          "avg_arr_delay": -9.132075471698114,
+          "carrier": "DL",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "SFO",
+          "dest_lat": 37.618889,
+          "dest_lon": -122.375,
+          "flight_count": 477,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: DL\nFrom JFK \u2192 SFO\nAvg Arr Delay: -9.13 min\nFlights: 477"
+        },
+        {
+          "avg_arr_delay": -3.0730593607305936,
+          "carrier": "UA",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "SFO",
+          "dest_lat": 37.618889,
+          "dest_lon": -122.375,
+          "flight_count": 657,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: UA\nFrom JFK \u2192 SFO\nAvg Arr Delay: -3.07 min\nFlights: 657"
+        },
+        {
+          "avg_arr_delay": 0.13352272727272727,
+          "carrier": "VX",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "SFO",
+          "dest_lat": 37.618889,
+          "dest_lon": -122.375,
+          "flight_count": 352,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: VX\nFrom JFK \u2192 SFO\nAvg Arr Delay: 0.13 min\nFlights: 352"
+        },
+        {
+          "avg_arr_delay": -5.351648351648351,
+          "carrier": "B6",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "SJC",
+          "dest_lat": 37.352778,
+          "dest_lon": -121.919444,
+          "flight_count": 91,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: B6\nFrom JFK \u2192 SJC\nAvg Arr Delay: -5.35 min\nFlights: 91"
+        },
+        {
+          "avg_arr_delay": 11.0,
+          "carrier": "VX",
+          "color": [
+            255,
+            149,
+            0
+          ],
+          "dest": "SJC",
+          "dest_lat": 37.352778,
+          "dest_lon": -121.919444,
+          "flight_count": 1,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: VX\nFrom JFK \u2192 SJC\nAvg Arr Delay: 11.0 min\nFlights: 1"
+        },
+        {
+          "avg_arr_delay": -7.90625,
+          "carrier": "AA",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "SJU",
+          "dest_lat": NaN,
+          "dest_lon": NaN,
+          "flight_count": 192,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: AA\nFrom JFK \u2192 SJU\nAvg Arr Delay: -7.91 min\nFlights: 192"
+        },
+        {
+          "avg_arr_delay": -1.0764587525150906,
+          "carrier": "B6",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "SJU",
+          "dest_lat": NaN,
+          "dest_lon": NaN,
+          "flight_count": 497,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: B6\nFrom JFK \u2192 SJU\nAvg Arr Delay: -1.08 min\nFlights: 497"
+        },
+        {
+          "avg_arr_delay": -9.2707182320442,
+          "carrier": "DL",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "SJU",
+          "dest_lat": NaN,
+          "dest_lon": NaN,
+          "flight_count": 362,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: DL\nFrom JFK \u2192 SJU\nAvg Arr Delay: -9.27 min\nFlights: 362"
+        },
+        {
+          "avg_arr_delay": -3.3846153846153846,
+          "carrier": "B6",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "SLC",
+          "dest_lat": 40.788333,
+          "dest_lon": -111.966667,
+          "flight_count": 91,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: B6\nFrom JFK \u2192 SLC\nAvg Arr Delay: -3.38 min\nFlights: 91"
+        },
+        {
+          "avg_arr_delay": -5.072769953051643,
+          "carrier": "DL",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "SLC",
+          "dest_lat": 40.788333,
+          "dest_lon": -111.966667,
+          "flight_count": 426,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: DL\nFrom JFK \u2192 SLC\nAvg Arr Delay: -5.07 min\nFlights: 426"
+        },
+        {
+          "avg_arr_delay": 1.4333333333333333,
+          "carrier": "B6",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "SMF",
+          "dest_lat": 38.7,
+          "dest_lon": -121.616667,
+          "flight_count": 60,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: B6\nFrom JFK \u2192 SMF\nAvg Arr Delay: 1.43 min\nFlights: 60"
+        },
+        {
+          "avg_arr_delay": -12.219780219780219,
+          "carrier": "B6",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "SRQ",
+          "dest_lat": 27.395556,
+          "dest_lon": -82.554444,
+          "flight_count": 91,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: B6\nFrom JFK \u2192 SRQ\nAvg Arr Delay: -12.22 min\nFlights: 91"
+        },
+        {
+          "avg_arr_delay": -8.0,
+          "carrier": "DL",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "STL",
+          "dest_lat": 38.748611,
+          "dest_lon": -90.37,
+          "flight_count": 1,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: DL\nFrom JFK \u2192 STL\nAvg Arr Delay: -8.0 min\nFlights: 1"
+        },
+        {
+          "avg_arr_delay": -5.0606060606060606,
+          "carrier": "AA",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "STT",
+          "dest_lat": NaN,
+          "dest_lon": NaN,
+          "flight_count": 33,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: AA\nFrom JFK \u2192 STT\nAvg Arr Delay: -5.06 min\nFlights: 33"
+        },
+        {
+          "avg_arr_delay": -19.25,
+          "carrier": "9E",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "SYR",
+          "dest_lat": 43.116667,
+          "dest_lon": -76.116667,
+          "flight_count": 4,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: 9E\nFrom JFK \u2192 SYR\nAvg Arr Delay: -19.25 min\nFlights: 4"
+        },
+        {
+          "avg_arr_delay": 3.0229508196721313,
+          "carrier": "B6",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "SYR",
+          "dest_lat": 43.116667,
+          "dest_lon": -76.116667,
+          "flight_count": 305,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: B6\nFrom JFK \u2192 SYR\nAvg Arr Delay: 3.02 min\nFlights: 305"
+        },
+        {
+          "avg_arr_delay": -26.0,
+          "carrier": "9E",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "TPA",
+          "dest_lat": 27.975556,
+          "dest_lon": -82.533056,
+          "flight_count": 1,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: 9E\nFrom JFK \u2192 TPA\nAvg Arr Delay: -26.0 min\nFlights: 1"
+        },
+        {
+          "avg_arr_delay": -5.249376558603491,
+          "carrier": "B6",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "TPA",
+          "dest_lat": 27.975556,
+          "dest_lon": -82.533056,
+          "flight_count": 401,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: B6\nFrom JFK \u2192 TPA\nAvg Arr Delay: -5.25 min\nFlights: 401"
+        },
+        {
+          "avg_arr_delay": -7.508571428571429,
+          "carrier": "DL",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "TPA",
+          "dest_lat": 27.975556,
+          "dest_lon": -82.533056,
+          "flight_count": 175,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: DL\nFrom JFK \u2192 TPA\nAvg Arr Delay: -7.51 min\nFlights: 175"
+        },
+        {
+          "avg_arr_delay": 1.5944444444444446,
+          "carrier": "MQ",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "TPA",
+          "dest_lat": 27.975556,
+          "dest_lon": -82.533056,
+          "flight_count": 180,
+          "origin": "JFK",
+          "origin_lat": 40.633333,
+          "origin_lon": -73.783333,
+          "tooltip_text": "Carrier: MQ\nFrom JFK \u2192 TPA\nAvg Arr Delay: 1.59 min\nFlights: 180"
+        },
+        {
+          "avg_arr_delay": -1.7054992764109986,
+          "carrier": "DL",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "ATL",
+          "dest_lat": 33.636667,
+          "dest_lon": -84.428056,
+          "flight_count": 1382,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: DL\nFrom LGA \u2192 ATL\nAvg Arr Delay: -1.71 min\nFlights: 1382"
+        },
+        {
+          "avg_arr_delay": 18.100603621730382,
+          "carrier": "FL",
+          "color": [
+            255,
+            149,
+            0
+          ],
+          "dest": "ATL",
+          "dest_lat": 33.636667,
+          "dest_lon": -84.428056,
+          "flight_count": 497,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: FL\nFrom LGA \u2192 ATL\nAvg Arr Delay: 18.1 min\nFlights: 497"
+        },
+        {
+          "avg_arr_delay": 6.456942003514938,
+          "carrier": "MQ",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "ATL",
+          "dest_lat": 33.636667,
+          "dest_lon": -84.428056,
+          "flight_count": 569,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: MQ\nFrom LGA \u2192 ATL\nAvg Arr Delay: 6.46 min\nFlights: 569"
+        },
+        {
+          "avg_arr_delay": 5.428571428571429,
+          "carrier": "WN",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "ATL",
+          "dest_lat": 33.636667,
+          "dest_lon": -84.428056,
+          "flight_count": 28,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: WN\nFrom LGA \u2192 ATL\nAvg Arr Delay: 5.43 min\nFlights: 28"
+        },
+        {
+          "avg_arr_delay": NaN,
+          "carrier": "9E",
+          "color": [
+            180,
+            180,
+            180
+          ],
+          "dest": "BGR",
+          "dest_lat": 44.8,
+          "dest_lon": -68.816667,
+          "flight_count": 0,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: 9E\nFrom LGA \u2192 BGR\nAvg Arr Delay: nan min\nFlights: 0"
+        },
+        {
+          "avg_arr_delay": -1.3433734939759037,
+          "carrier": "EV",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "BGR",
+          "dest_lat": 44.8,
+          "dest_lon": -68.816667,
+          "flight_count": 166,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: EV\nFrom LGA \u2192 BGR\nAvg Arr Delay: -1.34 min\nFlights: 166"
+        },
+        {
+          "avg_arr_delay": 8.159420289855072,
+          "carrier": "EV",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "BHM",
+          "dest_lat": 33.566667,
+          "dest_lon": -86.75,
+          "flight_count": 69,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: EV\nFrom LGA \u2192 BHM\nAvg Arr Delay: 8.16 min\nFlights: 69"
+        },
+        {
+          "avg_arr_delay": -0.5285714285714286,
+          "carrier": "9E",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "BNA",
+          "dest_lat": 36.124444,
+          "dest_lon": -86.678056,
+          "flight_count": 70,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: 9E\nFrom LGA \u2192 BNA\nAvg Arr Delay: -0.53 min\nFlights: 70"
+        },
+        {
+          "avg_arr_delay": -1.4967741935483871,
+          "carrier": "EV",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "BNA",
+          "dest_lat": 36.124444,
+          "dest_lon": -86.678056,
+          "flight_count": 155,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: EV\nFrom LGA \u2192 BNA\nAvg Arr Delay: -1.5 min\nFlights: 155"
+        },
+        {
+          "avg_arr_delay": 5.249475890985325,
+          "carrier": "MQ",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "BNA",
+          "dest_lat": 36.124444,
+          "dest_lon": -86.678056,
+          "flight_count": 477,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: MQ\nFrom LGA \u2192 BNA\nAvg Arr Delay: 5.25 min\nFlights: 477"
+        },
+        {
+          "avg_arr_delay": 2.2569832402234637,
+          "carrier": "WN",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "BNA",
+          "dest_lat": 36.124444,
+          "dest_lon": -86.678056,
+          "flight_count": 179,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: WN\nFrom LGA \u2192 BNA\nAvg Arr Delay: 2.26 min\nFlights: 179"
+        },
+        {
+          "avg_arr_delay": -5.160194174757281,
+          "carrier": "US",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "BOS",
+          "dest_lat": 42.363056,
+          "dest_lon": -71.0,
+          "flight_count": 1030,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: US\nFrom LGA \u2192 BOS\nAvg Arr Delay: -5.16 min\nFlights: 1030"
+        },
+        {
+          "avg_arr_delay": -1.0,
+          "carrier": "9E",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "BTV",
+          "dest_lat": 44.471944,
+          "dest_lon": -73.153333,
+          "flight_count": 1,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: 9E\nFrom LGA \u2192 BTV\nAvg Arr Delay: -1.0 min\nFlights: 1"
+        },
+        {
+          "avg_arr_delay": -12.352941176470589,
+          "carrier": "EV",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "BTV",
+          "dest_lat": 44.471944,
+          "dest_lon": -73.153333,
+          "flight_count": 51,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: EV\nFrom LGA \u2192 BTV\nAvg Arr Delay: -12.35 min\nFlights: 51"
+        },
+        {
+          "avg_arr_delay": 6.5625,
+          "carrier": "9E",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "BUF",
+          "dest_lat": 42.940556,
+          "dest_lon": -78.732222,
+          "flight_count": 48,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: 9E\nFrom LGA \u2192 BUF\nAvg Arr Delay: 6.56 min\nFlights: 48"
+        },
+        {
+          "avg_arr_delay": -11.795454545454545,
+          "carrier": "EV",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "BUF",
+          "dest_lat": 42.940556,
+          "dest_lon": -78.732222,
+          "flight_count": 44,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: EV\nFrom LGA \u2192 BUF\nAvg Arr Delay: -11.8 min\nFlights: 44"
+        },
+        {
+          "avg_arr_delay": 12.0,
+          "carrier": "FL",
+          "color": [
+            255,
+            149,
+            0
+          ],
+          "dest": "CAK",
+          "dest_lat": 40.916111,
+          "dest_lon": -81.442222,
+          "flight_count": 192,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: FL\nFrom LGA \u2192 CAK\nAvg Arr Delay: 12.0 min\nFlights: 192"
+        },
+        {
+          "avg_arr_delay": 10.210526315789474,
+          "carrier": "EV",
+          "color": [
+            255,
+            149,
+            0
+          ],
+          "dest": "CHO",
+          "dest_lat": 38.133333,
+          "dest_lon": -78.45,
+          "flight_count": 19,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: EV\nFrom LGA \u2192 CHO\nAvg Arr Delay: 10.21 min\nFlights: 19"
+        },
+        {
+          "avg_arr_delay": 1.81,
+          "carrier": "EV",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "CHS",
+          "dest_lat": 32.898611,
+          "dest_lon": -80.040556,
+          "flight_count": 200,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: EV\nFrom LGA \u2192 CHS\nAvg Arr Delay: 1.81 min\nFlights: 200"
+        },
+        {
+          "avg_arr_delay": 4.425531914893617,
+          "carrier": "EV",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "CLE",
+          "dest_lat": 41.416667,
+          "dest_lon": -81.85,
+          "flight_count": 94,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: EV\nFrom LGA \u2192 CLE\nAvg Arr Delay: 4.43 min\nFlights: 94"
+        },
+        {
+          "avg_arr_delay": -0.5015673981191222,
+          "carrier": "MQ",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "CLE",
+          "dest_lat": 41.416667,
+          "dest_lon": -81.85,
+          "flight_count": 319,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: MQ\nFrom LGA \u2192 CLE\nAvg Arr Delay: -0.5 min\nFlights: 319"
+        },
+        {
+          "avg_arr_delay": -8.882352941176471,
+          "carrier": "OO",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "CLE",
+          "dest_lat": 41.416667,
+          "dest_lon": -81.85,
+          "flight_count": 17,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: OO\nFrom LGA \u2192 CLE\nAvg Arr Delay: -8.88 min\nFlights: 17"
+        },
+        {
+          "avg_arr_delay": -1.4933333333333334,
+          "carrier": "UA",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "CLE",
+          "dest_lat": 41.416667,
+          "dest_lon": -81.85,
+          "flight_count": 75,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: UA\nFrom LGA \u2192 CLE\nAvg Arr Delay: -1.49 min\nFlights: 75"
+        },
+        {
+          "avg_arr_delay": 13.0,
+          "carrier": "9E",
+          "color": [
+            255,
+            149,
+            0
+          ],
+          "dest": "CLT",
+          "dest_lat": 35.216667,
+          "dest_lon": -80.933333,
+          "flight_count": 4,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: 9E\nFrom LGA \u2192 CLT\nAvg Arr Delay: 13.0 min\nFlights: 4"
+        },
+        {
+          "avg_arr_delay": 8.69855072463768,
+          "carrier": "EV",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "CLT",
+          "dest_lat": 35.216667,
+          "dest_lon": -80.933333,
+          "flight_count": 345,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: EV\nFrom LGA \u2192 CLT\nAvg Arr Delay: 8.7 min\nFlights: 345"
+        },
+        {
+          "avg_arr_delay": 5.847938144329897,
+          "carrier": "MQ",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "CLT",
+          "dest_lat": 35.216667,
+          "dest_lon": -80.933333,
+          "flight_count": 388,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: MQ\nFrom LGA \u2192 CLT\nAvg Arr Delay: 5.85 min\nFlights: 388"
+        },
+        {
+          "avg_arr_delay": -2.767711962833914,
+          "carrier": "US",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "CLT",
+          "dest_lat": 35.216667,
+          "dest_lon": -80.933333,
+          "flight_count": 861,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: US\nFrom LGA \u2192 CLT\nAvg Arr Delay: -2.77 min\nFlights: 861"
+        },
+        {
+          "avg_arr_delay": -0.8452380952380952,
+          "carrier": "YV",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "CLT",
+          "dest_lat": 35.216667,
+          "dest_lon": -80.933333,
+          "flight_count": 84,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: YV\nFrom LGA \u2192 CLT\nAvg Arr Delay: -0.85 min\nFlights: 84"
+        },
+        {
+          "avg_arr_delay": -23.0,
+          "carrier": "9E",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "CMH",
+          "dest_lat": 40.0,
+          "dest_lon": -82.883333,
+          "flight_count": 1,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: 9E\nFrom LGA \u2192 CMH\nAvg Arr Delay: -23.0 min\nFlights: 1"
+        },
+        {
+          "avg_arr_delay": 7.027777777777778,
+          "carrier": "EV",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "CMH",
+          "dest_lat": 40.0,
+          "dest_lon": -82.883333,
+          "flight_count": 72,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: EV\nFrom LGA \u2192 CMH\nAvg Arr Delay: 7.03 min\nFlights: 72"
+        },
+        {
+          "avg_arr_delay": 2.7425531914893617,
+          "carrier": "MQ",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "CMH",
+          "dest_lat": 40.0,
+          "dest_lon": -82.883333,
+          "flight_count": 470,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: MQ\nFrom LGA \u2192 CMH\nAvg Arr Delay: 2.74 min\nFlights: 470"
+        },
+        {
+          "avg_arr_delay": -2.0952380952380953,
+          "carrier": "9E",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "CVG",
+          "dest_lat": 39.048889,
+          "dest_lon": -84.667778,
+          "flight_count": 21,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: 9E\nFrom LGA \u2192 CVG\nAvg Arr Delay: -2.1 min\nFlights: 21"
+        },
+        {
+          "avg_arr_delay": 4.694915254237288,
+          "carrier": "EV",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "CVG",
+          "dest_lat": 39.048889,
+          "dest_lon": -84.667778,
+          "flight_count": 59,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: EV\nFrom LGA \u2192 CVG\nAvg Arr Delay: 4.69 min\nFlights: 59"
+        },
+        {
+          "avg_arr_delay": -9.716666666666667,
+          "carrier": "9E",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "DAY",
+          "dest_lat": 39.75,
+          "dest_lon": -84.183333,
+          "flight_count": 60,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: 9E\nFrom LGA \u2192 DAY\nAvg Arr Delay: -9.72 min\nFlights: 60"
+        },
+        {
+          "avg_arr_delay": -0.43370402053036783,
+          "carrier": "US",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "DCA",
+          "dest_lat": 38.851944,
+          "dest_lon": -77.037778,
+          "flight_count": 1169,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: US\nFrom LGA \u2192 DCA\nAvg Arr Delay: -0.43 min\nFlights: 1169"
+        },
+        {
+          "avg_arr_delay": 1.0308641975308641,
+          "carrier": "DL",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "DEN",
+          "dest_lat": 39.861667,
+          "dest_lon": -104.673056,
+          "flight_count": 162,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: DL\nFrom LGA \u2192 DEN\nAvg Arr Delay: 1.03 min\nFlights: 162"
+        },
+        {
+          "avg_arr_delay": 10.306358381502891,
+          "carrier": "F9",
+          "color": [
+            255,
+            149,
+            0
+          ],
+          "dest": "DEN",
+          "dest_lat": 39.861667,
+          "dest_lon": -104.673056,
+          "flight_count": 173,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: F9\nFrom LGA \u2192 DEN\nAvg Arr Delay: 10.31 min\nFlights: 173"
+        },
+        {
+          "avg_arr_delay": 2.536523929471033,
+          "carrier": "UA",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "DEN",
+          "dest_lat": 39.861667,
+          "dest_lon": -104.673056,
+          "flight_count": 397,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: UA\nFrom LGA \u2192 DEN\nAvg Arr Delay: 2.54 min\nFlights: 397"
+        },
+        {
+          "avg_arr_delay": 7.350574712643678,
+          "carrier": "WN",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "DEN",
+          "dest_lat": 39.861667,
+          "dest_lon": -104.673056,
+          "flight_count": 174,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: WN\nFrom LGA \u2192 DEN\nAvg Arr Delay: 7.35 min\nFlights: 174"
+        },
+        {
+          "avg_arr_delay": 6.3076923076923075,
+          "carrier": "9E",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "DFW",
+          "dest_lat": 32.896944,
+          "dest_lon": -97.038056,
+          "flight_count": 13,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: 9E\nFrom LGA \u2192 DFW\nAvg Arr Delay: 6.31 min\nFlights: 13"
+        },
+        {
+          "avg_arr_delay": -5.267950963222416,
+          "carrier": "AA",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "DFW",
+          "dest_lat": 32.896944,
+          "dest_lon": -97.038056,
+          "flight_count": 1142,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: AA\nFrom LGA \u2192 DFW\nAvg Arr Delay: -5.27 min\nFlights: 1142"
+        },
+        {
+          "avg_arr_delay": 3.242857142857143,
+          "carrier": "9E",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "DSM",
+          "dest_lat": 41.533889,
+          "dest_lon": -93.663056,
+          "flight_count": 70,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: 9E\nFrom LGA \u2192 DSM\nAvg Arr Delay: 3.24 min\nFlights: 70"
+        },
+        {
+          "avg_arr_delay": -4.3585657370517925,
+          "carrier": "DL",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "DTW",
+          "dest_lat": 42.2125,
+          "dest_lon": -83.353333,
+          "flight_count": 753,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: DL\nFrom LGA \u2192 DTW\nAvg Arr Delay: -4.36 min\nFlights: 753"
+        },
+        {
+          "avg_arr_delay": 134.0,
+          "carrier": "EV",
+          "color": [
+            255,
+            0,
+            0
+          ],
+          "dest": "DTW",
+          "dest_lat": 42.2125,
+          "dest_lon": -83.353333,
+          "flight_count": 3,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: EV\nFrom LGA \u2192 DTW\nAvg Arr Delay: 134.0 min\nFlights: 3"
+        },
+        {
+          "avg_arr_delay": -1.1428571428571428,
+          "carrier": "MQ",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "DTW",
+          "dest_lat": 42.2125,
+          "dest_lon": -83.353333,
+          "flight_count": 469,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: MQ\nFrom LGA \u2192 DTW\nAvg Arr Delay: -1.14 min\nFlights: 469"
+        },
+        {
+          "avg_arr_delay": 1.3278084714548803,
+          "carrier": "B6",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "FLL",
+          "dest_lat": 26.0725,
+          "dest_lon": -80.152778,
+          "flight_count": 543,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: B6\nFrom LGA \u2192 FLL\nAvg Arr Delay: 1.33 min\nFlights: 543"
+        },
+        {
+          "avg_arr_delay": -6.721354166666667,
+          "carrier": "DL",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "FLL",
+          "dest_lat": 26.0725,
+          "dest_lon": -80.152778,
+          "flight_count": 384,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: DL\nFrom LGA \u2192 FLL\nAvg Arr Delay: -6.72 min\nFlights: 384"
+        },
+        {
+          "avg_arr_delay": -26.0,
+          "carrier": "EV",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "GRR",
+          "dest_lat": 42.883333,
+          "dest_lon": -85.533333,
+          "flight_count": 1,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: EV\nFrom LGA \u2192 GRR\nAvg Arr Delay: -26.0 min\nFlights: 1"
+        },
+        {
+          "avg_arr_delay": 13.0,
+          "carrier": "9E",
+          "color": [
+            255,
+            149,
+            0
+          ],
+          "dest": "GSO",
+          "dest_lat": 36.097778,
+          "dest_lon": -79.937222,
+          "flight_count": 1,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: 9E\nFrom LGA \u2192 GSO\nAvg Arr Delay: 13.0 min\nFlights: 1"
+        },
+        {
+          "avg_arr_delay": 0.6974789915966386,
+          "carrier": "EV",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "GSO",
+          "dest_lat": 36.097778,
+          "dest_lon": -79.937222,
+          "flight_count": 238,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: EV\nFrom LGA \u2192 GSO\nAvg Arr Delay: 0.7 min\nFlights: 238"
+        },
+        {
+          "avg_arr_delay": -0.7164179104477612,
+          "carrier": "9E",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "GSP",
+          "dest_lat": 34.895556,
+          "dest_lon": -82.218889,
+          "flight_count": 67,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: 9E\nFrom LGA \u2192 GSP\nAvg Arr Delay: -0.72 min\nFlights: 67"
+        },
+        {
+          "avg_arr_delay": 60.0,
+          "carrier": "EV",
+          "color": [
+            255,
+            0,
+            0
+          ],
+          "dest": "GSP",
+          "dest_lat": 34.895556,
+          "dest_lon": -82.218889,
+          "flight_count": 1,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: EV\nFrom LGA \u2192 GSP\nAvg Arr Delay: 60.0 min\nFlights: 1"
+        },
+        {
+          "avg_arr_delay": -3.154696132596685,
+          "carrier": "WN",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "HOU",
+          "dest_lat": 29.645556,
+          "dest_lon": -95.278889,
+          "flight_count": 181,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: WN\nFrom LGA \u2192 HOU\nAvg Arr Delay: -3.15 min\nFlights: 181"
+        },
+        {
+          "avg_arr_delay": -5.297297297297297,
+          "carrier": "9E",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "IAD",
+          "dest_lat": 38.944444,
+          "dest_lon": -77.455833,
+          "flight_count": 74,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: 9E\nFrom LGA \u2192 IAD\nAvg Arr Delay: -5.3 min\nFlights: 74"
+        },
+        {
+          "avg_arr_delay": 9.135057471264368,
+          "carrier": "EV",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "IAD",
+          "dest_lat": 38.944444,
+          "dest_lon": -77.455833,
+          "flight_count": 348,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: EV\nFrom LGA \u2192 IAD\nAvg Arr Delay: 9.14 min\nFlights: 348"
+        },
+        {
+          "avg_arr_delay": 3.0,
+          "carrier": "OO",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "IAD",
+          "dest_lat": 38.944444,
+          "dest_lon": -77.455833,
+          "flight_count": 1,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: OO\nFrom LGA \u2192 IAD\nAvg Arr Delay: 3.0 min\nFlights: 1"
+        },
+        {
+          "avg_arr_delay": 17.274193548387096,
+          "carrier": "YV",
+          "color": [
+            255,
+            149,
+            0
+          ],
+          "dest": "IAD",
+          "dest_lat": 38.944444,
+          "dest_lon": -77.455833,
+          "flight_count": 62,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: YV\nFrom LGA \u2192 IAD\nAvg Arr Delay: 17.27 min\nFlights: 62"
+        },
+        {
+          "avg_arr_delay": -5.2391608391608395,
+          "carrier": "UA",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "IAH",
+          "dest_lat": 29.984444,
+          "dest_lon": -95.341389,
+          "flight_count": 715,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: UA\nFrom LGA \u2192 IAH\nAvg Arr Delay: -5.24 min\nFlights: 715"
+        },
+        {
+          "avg_arr_delay": -0.1125,
+          "carrier": "EV",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "ILM",
+          "dest_lat": 34.270556,
+          "dest_lon": -77.9025,
+          "flight_count": 80,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: EV\nFrom LGA \u2192 ILM\nAvg Arr Delay: -0.11 min\nFlights: 80"
+        },
+        {
+          "avg_arr_delay": -11.580645161290322,
+          "carrier": "9E",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "IND",
+          "dest_lat": 39.717222,
+          "dest_lon": -86.294722,
+          "flight_count": 62,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: 9E\nFrom LGA \u2192 IND\nAvg Arr Delay: -11.58 min\nFlights: 62"
+        },
+        {
+          "avg_arr_delay": -3.268041237113402,
+          "carrier": "9E",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "JAX",
+          "dest_lat": 30.416667,
+          "dest_lon": -81.633333,
+          "flight_count": 97,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: 9E\nFrom LGA \u2192 JAX\nAvg Arr Delay: -3.27 min\nFlights: 97"
+        },
+        {
+          "avg_arr_delay": -22.0,
+          "carrier": "9E",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "LEX",
+          "dest_lat": 38.036389,
+          "dest_lon": -84.605833,
+          "flight_count": 1,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: 9E\nFrom LGA \u2192 LEX\nAvg Arr Delay: -22.0 min\nFlights: 1"
+        },
+        {
+          "avg_arr_delay": 3.8142857142857145,
+          "carrier": "9E",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "MCI",
+          "dest_lat": 39.291667,
+          "dest_lon": -94.730556,
+          "flight_count": 70,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: 9E\nFrom LGA \u2192 MCI\nAvg Arr Delay: 3.81 min\nFlights: 70"
+        },
+        {
+          "avg_arr_delay": -3.8505747126436782,
+          "carrier": "B6",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "MCO",
+          "dest_lat": 28.429444,
+          "dest_lon": -81.308889,
+          "flight_count": 348,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: B6\nFrom LGA \u2192 MCO\nAvg Arr Delay: -3.85 min\nFlights: 348"
+        },
+        {
+          "avg_arr_delay": -3.89272030651341,
+          "carrier": "DL",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "MCO",
+          "dest_lat": 28.429444,
+          "dest_lon": -81.308889,
+          "flight_count": 522,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: DL\nFrom LGA \u2192 MCO\nAvg Arr Delay: -3.89 min\nFlights: 522"
+        },
+        {
+          "avg_arr_delay": 8.934362934362934,
+          "carrier": "WN",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "MDW",
+          "dest_lat": 41.783333,
+          "dest_lon": -87.75,
+          "flight_count": 518,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: WN\nFrom LGA \u2192 MDW\nAvg Arr Delay: 8.93 min\nFlights: 518"
+        },
+        {
+          "avg_arr_delay": -13.0,
+          "carrier": "9E",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "MEM",
+          "dest_lat": 35.066667,
+          "dest_lon": -89.966667,
+          "flight_count": 2,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: 9E\nFrom LGA \u2192 MEM\nAvg Arr Delay: -13.0 min\nFlights: 2"
+        },
+        {
+          "avg_arr_delay": 0.23376623376623376,
+          "carrier": "DL",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "MEM",
+          "dest_lat": 35.066667,
+          "dest_lon": -89.966667,
+          "flight_count": 77,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: DL\nFrom LGA \u2192 MEM\nAvg Arr Delay: 0.23 min\nFlights: 77"
+        },
+        {
+          "avg_arr_delay": -6.6716417910447765,
+          "carrier": "EV",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "MEM",
+          "dest_lat": 35.066667,
+          "dest_lon": -89.966667,
+          "flight_count": 134,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: EV\nFrom LGA \u2192 MEM\nAvg Arr Delay: -6.67 min\nFlights: 134"
+        },
+        {
+          "avg_arr_delay": NaN,
+          "carrier": "EV",
+          "color": [
+            180,
+            180,
+            180
+          ],
+          "dest": "MHT",
+          "dest_lat": 42.9325,
+          "dest_lon": -71.435556,
+          "flight_count": 0,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: EV\nFrom LGA \u2192 MHT\nAvg Arr Delay: nan min\nFlights: 0"
+        },
+        {
+          "avg_arr_delay": -7.876656472986748,
+          "carrier": "AA",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "MIA",
+          "dest_lat": 25.783333,
+          "dest_lon": -80.266667,
+          "flight_count": 981,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: AA\nFrom LGA \u2192 MIA\nAvg Arr Delay: -7.88 min\nFlights: 981"
+        },
+        {
+          "avg_arr_delay": -7.928571428571429,
+          "carrier": "DL",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "MIA",
+          "dest_lat": 25.783333,
+          "dest_lon": -80.266667,
+          "flight_count": 462,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: DL\nFrom LGA \u2192 MIA\nAvg Arr Delay: -7.93 min\nFlights: 462"
+        },
+        {
+          "avg_arr_delay": 10.425531914893616,
+          "carrier": "9E",
+          "color": [
+            255,
+            149,
+            0
+          ],
+          "dest": "MKE",
+          "dest_lat": 42.95,
+          "dest_lon": -87.9,
+          "flight_count": 94,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: 9E\nFrom LGA \u2192 MKE\nAvg Arr Delay: 10.43 min\nFlights: 94"
+        },
+        {
+          "avg_arr_delay": 4.0,
+          "carrier": "EV",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "MKE",
+          "dest_lat": 42.95,
+          "dest_lon": -87.9,
+          "flight_count": 1,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: EV\nFrom LGA \u2192 MKE\nAvg Arr Delay: 4.0 min\nFlights: 1"
+        },
+        {
+          "avg_arr_delay": 10.012820512820513,
+          "carrier": "WN",
+          "color": [
+            255,
+            149,
+            0
+          ],
+          "dest": "MKE",
+          "dest_lat": 42.95,
+          "dest_lon": -87.9,
+          "flight_count": 312,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: WN\nFrom LGA \u2192 MKE\nAvg Arr Delay: 10.01 min\nFlights: 312"
+        },
+        {
+          "avg_arr_delay": 12.0,
+          "carrier": "9E",
+          "color": [
+            255,
+            149,
+            0
+          ],
+          "dest": "MSN",
+          "dest_lat": 43.139722,
+          "dest_lon": -89.3375,
+          "flight_count": 1,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: 9E\nFrom LGA \u2192 MSN\nAvg Arr Delay: 12.0 min\nFlights: 1"
+        },
+        {
+          "avg_arr_delay": 9.79020979020979,
+          "carrier": "EV",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "MSN",
+          "dest_lat": 43.139722,
+          "dest_lon": -89.3375,
+          "flight_count": 143,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: EV\nFrom LGA \u2192 MSN\nAvg Arr Delay: 9.79 min\nFlights: 143"
+        },
+        {
+          "avg_arr_delay": 2.9494097807757167,
+          "carrier": "DL",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "MSP",
+          "dest_lat": 44.883333,
+          "dest_lon": -93.216944,
+          "flight_count": 593,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: DL\nFrom LGA \u2192 MSP\nAvg Arr Delay: 2.95 min\nFlights: 593"
+        },
+        {
+          "avg_arr_delay": 5.7491961414791,
+          "carrier": "MQ",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "MSP",
+          "dest_lat": 44.883333,
+          "dest_lon": -93.216944,
+          "flight_count": 311,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: MQ\nFrom LGA \u2192 MSP\nAvg Arr Delay: 5.75 min\nFlights: 311"
+        },
+        {
+          "avg_arr_delay": -29.0,
+          "carrier": "9E",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "MSY",
+          "dest_lat": 29.993333,
+          "dest_lon": -90.258056,
+          "flight_count": 1,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: 9E\nFrom LGA \u2192 MSY\nAvg Arr Delay: -29.0 min\nFlights: 1"
+        },
+        {
+          "avg_arr_delay": -6.9714285714285715,
+          "carrier": "DL",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "MSY",
+          "dest_lat": 29.993333,
+          "dest_lon": -90.258056,
+          "flight_count": 245,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: DL\nFrom LGA \u2192 MSY\nAvg Arr Delay: -6.97 min\nFlights: 245"
+        },
+        {
+          "avg_arr_delay": 12.605633802816902,
+          "carrier": "EV",
+          "color": [
+            255,
+            149,
+            0
+          ],
+          "dest": "OMA",
+          "dest_lat": 41.3,
+          "dest_lon": -95.9,
+          "flight_count": 71,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: EV\nFrom LGA \u2192 OMA\nAvg Arr Delay: 12.61 min\nFlights: 71"
+        },
+        {
+          "avg_arr_delay": -5.371328671328671,
+          "carrier": "AA",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "ORD",
+          "dest_lat": 41.978611,
+          "dest_lon": -87.904722,
+          "flight_count": 1430,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: AA\nFrom LGA \u2192 ORD\nAvg Arr Delay: -5.37 min\nFlights: 1430"
+        },
+        {
+          "avg_arr_delay": 0.058823529411764705,
+          "carrier": "UA",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "ORD",
+          "dest_lat": 41.978611,
+          "dest_lon": -87.904722,
+          "flight_count": 986,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: UA\nFrom LGA \u2192 ORD\nAvg Arr Delay: 0.06 min\nFlights: 986"
+        },
+        {
+          "avg_arr_delay": -20.333333333333332,
+          "carrier": "9E",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "ORF",
+          "dest_lat": 36.9,
+          "dest_lon": -76.2,
+          "flight_count": 3,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: 9E\nFrom LGA \u2192 ORF\nAvg Arr Delay: -20.33 min\nFlights: 3"
+        },
+        {
+          "avg_arr_delay": 6.026086956521739,
+          "carrier": "EV",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "ORF",
+          "dest_lat": 36.9,
+          "dest_lon": -76.2,
+          "flight_count": 115,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: EV\nFrom LGA \u2192 ORF\nAvg Arr Delay: 6.03 min\nFlights: 115"
+        },
+        {
+          "avg_arr_delay": -15.55,
+          "carrier": "AA",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "PBI",
+          "dest_lat": 26.683056,
+          "dest_lon": -80.095556,
+          "flight_count": 20,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: AA\nFrom LGA \u2192 PBI\nAvg Arr Delay: -15.55 min\nFlights: 20"
+        },
+        {
+          "avg_arr_delay": 0.9348837209302325,
+          "carrier": "B6",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "PBI",
+          "dest_lat": 26.683056,
+          "dest_lon": -80.095556,
+          "flight_count": 215,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: B6\nFrom LGA \u2192 PBI\nAvg Arr Delay: 0.93 min\nFlights: 215"
+        },
+        {
+          "avg_arr_delay": -7.885474860335195,
+          "carrier": "DL",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "PBI",
+          "dest_lat": 26.683056,
+          "dest_lon": -80.095556,
+          "flight_count": 358,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: DL\nFrom LGA \u2192 PBI\nAvg Arr Delay: -7.89 min\nFlights: 358"
+        },
+        {
+          "avg_arr_delay": 2.7336683417085426,
+          "carrier": "US",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "PHL",
+          "dest_lat": 39.871944,
+          "dest_lon": -75.241111,
+          "flight_count": 199,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: US\nFrom LGA \u2192 PHL\nAvg Arr Delay: 2.73 min\nFlights: 199"
+        },
+        {
+          "avg_arr_delay": -23.5,
+          "carrier": "YV",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "PHL",
+          "dest_lat": 39.871944,
+          "dest_lon": -75.241111,
+          "flight_count": 4,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: YV\nFrom LGA \u2192 PHL\nAvg Arr Delay: -23.5 min\nFlights: 4"
+        },
+        {
+          "avg_arr_delay": -2.891891891891892,
+          "carrier": "9E",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "PIT",
+          "dest_lat": 40.491389,
+          "dest_lon": -80.232778,
+          "flight_count": 74,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: 9E\nFrom LGA \u2192 PIT\nAvg Arr Delay: -2.89 min\nFlights: 74"
+        },
+        {
+          "avg_arr_delay": 62.5,
+          "carrier": "DL",
+          "color": [
+            255,
+            0,
+            0
+          ],
+          "dest": "PIT",
+          "dest_lat": 40.491389,
+          "dest_lon": -80.232778,
+          "flight_count": 2,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: DL\nFrom LGA \u2192 PIT\nAvg Arr Delay: 62.5 min\nFlights: 2"
+        },
+        {
+          "avg_arr_delay": 9.007067137809187,
+          "carrier": "EV",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "PIT",
+          "dest_lat": 40.491389,
+          "dest_lon": -80.232778,
+          "flight_count": 283,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: EV\nFrom LGA \u2192 PIT\nAvg Arr Delay: 9.01 min\nFlights: 283"
+        },
+        {
+          "avg_arr_delay": 2.0,
+          "carrier": "DL",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "PWM",
+          "dest_lat": 43.65,
+          "dest_lon": -70.3,
+          "flight_count": 1,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: DL\nFrom LGA \u2192 PWM\nAvg Arr Delay: 2.0 min\nFlights: 1"
+        },
+        {
+          "avg_arr_delay": 33.666666666666664,
+          "carrier": "EV",
+          "color": [
+            255,
+            0,
+            0
+          ],
+          "dest": "PWM",
+          "dest_lat": 43.65,
+          "dest_lon": -70.3,
+          "flight_count": 3,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: EV\nFrom LGA \u2192 PWM\nAvg Arr Delay: 33.67 min\nFlights: 3"
+        },
+        {
+          "avg_arr_delay": 0.9782608695652174,
+          "carrier": "9E",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "RDU",
+          "dest_lat": 35.877778,
+          "dest_lon": -78.7875,
+          "flight_count": 46,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: 9E\nFrom LGA \u2192 RDU\nAvg Arr Delay: 0.98 min\nFlights: 46"
+        },
+        {
+          "avg_arr_delay": -9.371428571428572,
+          "carrier": "EV",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "RDU",
+          "dest_lat": 35.877778,
+          "dest_lon": -78.7875,
+          "flight_count": 35,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: EV\nFrom LGA \u2192 RDU\nAvg Arr Delay: -9.37 min\nFlights: 35"
+        },
+        {
+          "avg_arr_delay": 4.967540574282148,
+          "carrier": "MQ",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "RDU",
+          "dest_lat": 35.877778,
+          "dest_lon": -78.7875,
+          "flight_count": 801,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: MQ\nFrom LGA \u2192 RDU\nAvg Arr Delay: 4.97 min\nFlights: 801"
+        },
+        {
+          "avg_arr_delay": -11.714285714285714,
+          "carrier": "9E",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "RIC",
+          "dest_lat": 37.5,
+          "dest_lon": -77.316667,
+          "flight_count": 7,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: 9E\nFrom LGA \u2192 RIC\nAvg Arr Delay: -11.71 min\nFlights: 7"
+        },
+        {
+          "avg_arr_delay": -4.172897196261682,
+          "carrier": "EV",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "RIC",
+          "dest_lat": 37.5,
+          "dest_lon": -77.316667,
+          "flight_count": 214,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: EV\nFrom LGA \u2192 RIC\nAvg Arr Delay: -4.17 min\nFlights: 214"
+        },
+        {
+          "avg_arr_delay": -15.333333333333334,
+          "carrier": "9E",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "ROC",
+          "dest_lat": 43.118889,
+          "dest_lon": -77.6725,
+          "flight_count": 6,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: 9E\nFrom LGA \u2192 ROC\nAvg Arr Delay: -15.33 min\nFlights: 6"
+        },
+        {
+          "avg_arr_delay": 3.210191082802548,
+          "carrier": "EV",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "ROC",
+          "dest_lat": 43.118889,
+          "dest_lon": -77.6725,
+          "flight_count": 157,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: EV\nFrom LGA \u2192 ROC\nAvg Arr Delay: 3.21 min\nFlights: 157"
+        },
+        {
+          "avg_arr_delay": -6.609375,
+          "carrier": "9E",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "RSW",
+          "dest_lat": 26.542222,
+          "dest_lon": -81.755278,
+          "flight_count": 64,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: 9E\nFrom LGA \u2192 RSW\nAvg Arr Delay: -6.61 min\nFlights: 64"
+        },
+        {
+          "avg_arr_delay": 2.5384615384615383,
+          "carrier": "B6",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "RSW",
+          "dest_lat": 26.542222,
+          "dest_lon": -81.755278,
+          "flight_count": 91,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: B6\nFrom LGA \u2192 RSW\nAvg Arr Delay: 2.54 min\nFlights: 91"
+        },
+        {
+          "avg_arr_delay": 2.84,
+          "carrier": "DL",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "RSW",
+          "dest_lat": 26.542222,
+          "dest_lon": -81.755278,
+          "flight_count": 25,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: DL\nFrom LGA \u2192 RSW\nAvg Arr Delay: 2.84 min\nFlights: 25"
+        },
+        {
+          "avg_arr_delay": -13.090909090909092,
+          "carrier": "EV",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "SAV",
+          "dest_lat": 32.133333,
+          "dest_lon": -81.2,
+          "flight_count": 44,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: EV\nFrom LGA \u2192 SAV\nAvg Arr Delay: -13.09 min\nFlights: 44"
+        },
+        {
+          "avg_arr_delay": 21.2,
+          "carrier": "EV",
+          "color": [
+            255,
+            149,
+            0
+          ],
+          "dest": "SBN",
+          "dest_lat": 41.7,
+          "dest_lon": -86.316667,
+          "flight_count": 5,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: EV\nFrom LGA \u2192 SBN\nAvg Arr Delay: 21.2 min\nFlights: 5"
+        },
+        {
+          "avg_arr_delay": -9.459016393442623,
+          "carrier": "9E",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "SDF",
+          "dest_lat": 38.174444,
+          "dest_lon": -85.736111,
+          "flight_count": 61,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: 9E\nFrom LGA \u2192 SDF\nAvg Arr Delay: -9.46 min\nFlights: 61"
+        },
+        {
+          "avg_arr_delay": 4.409836065573771,
+          "carrier": "9E",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "SRQ",
+          "dest_lat": 27.395556,
+          "dest_lon": -82.554444,
+          "flight_count": 61,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: 9E\nFrom LGA \u2192 SRQ\nAvg Arr Delay: 4.41 min\nFlights: 61"
+        },
+        {
+          "avg_arr_delay": 2.7142857142857144,
+          "carrier": "B6",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "SRQ",
+          "dest_lat": 27.395556,
+          "dest_lon": -82.554444,
+          "flight_count": 91,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: B6\nFrom LGA \u2192 SRQ\nAvg Arr Delay: 2.71 min\nFlights: 91"
+        },
+        {
+          "avg_arr_delay": -23.0,
+          "carrier": "DL",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "SRQ",
+          "dest_lat": 27.395556,
+          "dest_lon": -82.554444,
+          "flight_count": 1,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: DL\nFrom LGA \u2192 SRQ\nAvg Arr Delay: -23.0 min\nFlights: 1"
+        },
+        {
+          "avg_arr_delay": -13.26923076923077,
+          "carrier": "EV",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "SRQ",
+          "dest_lat": 27.395556,
+          "dest_lon": -82.554444,
+          "flight_count": 26,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: EV\nFrom LGA \u2192 SRQ\nAvg Arr Delay: -13.27 min\nFlights: 26"
+        },
+        {
+          "avg_arr_delay": -4.065789473684211,
+          "carrier": "AA",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "STL",
+          "dest_lat": 38.748611,
+          "dest_lon": -90.37,
+          "flight_count": 228,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: AA\nFrom LGA \u2192 STL\nAvg Arr Delay: -4.07 min\nFlights: 228"
+        },
+        {
+          "avg_arr_delay": -30.0,
+          "carrier": "EV",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "STL",
+          "dest_lat": 38.748611,
+          "dest_lon": -90.37,
+          "flight_count": 1,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: EV\nFrom LGA \u2192 STL\nAvg Arr Delay: -30.0 min\nFlights: 1"
+        },
+        {
+          "avg_arr_delay": 0.6363636363636364,
+          "carrier": "MQ",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "STL",
+          "dest_lat": 38.748611,
+          "dest_lon": -90.37,
+          "flight_count": 33,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: MQ\nFrom LGA \u2192 STL\nAvg Arr Delay: 0.64 min\nFlights: 33"
+        },
+        {
+          "avg_arr_delay": 5.195348837209302,
+          "carrier": "WN",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "STL",
+          "dest_lat": 38.748611,
+          "dest_lon": -90.37,
+          "flight_count": 215,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: WN\nFrom LGA \u2192 STL\nAvg Arr Delay: 5.2 min\nFlights: 215"
+        },
+        {
+          "avg_arr_delay": 4.148148148148148,
+          "carrier": "9E",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "SYR",
+          "dest_lat": 43.116667,
+          "dest_lon": -76.116667,
+          "flight_count": 81,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: 9E\nFrom LGA \u2192 SYR\nAvg Arr Delay: 4.15 min\nFlights: 81"
+        },
+        {
+          "avg_arr_delay": 1.7543859649122806,
+          "carrier": "EV",
+          "color": [
+            255,
+            215,
+            0
+          ],
+          "dest": "SYR",
+          "dest_lat": 43.116667,
+          "dest_lon": -76.116667,
+          "flight_count": 57,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: EV\nFrom LGA \u2192 SYR\nAvg Arr Delay: 1.75 min\nFlights: 57"
+        },
+        {
+          "avg_arr_delay": -1.3296703296703296,
+          "carrier": "B6",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "TPA",
+          "dest_lat": 27.975556,
+          "dest_lon": -82.533056,
+          "flight_count": 182,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: B6\nFrom LGA \u2192 TPA\nAvg Arr Delay: -1.33 min\nFlights: 182"
+        },
+        {
+          "avg_arr_delay": -7.949852507374631,
+          "carrier": "DL",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "TPA",
+          "dest_lat": 27.975556,
+          "dest_lon": -82.533056,
+          "flight_count": 339,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: DL\nFrom LGA \u2192 TPA\nAvg Arr Delay: -7.95 min\nFlights: 339"
+        },
+        {
+          "avg_arr_delay": -6.945205479452055,
+          "carrier": "9E",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "TYS",
+          "dest_lat": 35.95,
+          "dest_lon": -83.916667,
+          "flight_count": 73,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: 9E\nFrom LGA \u2192 TYS\nAvg Arr Delay: -6.95 min\nFlights: 73"
+        },
+        {
+          "avg_arr_delay": -0.7055555555555556,
+          "carrier": "MQ",
+          "color": [
+            0,
+            0,
+            255
+          ],
+          "dest": "XNA",
+          "dest_lat": 36.281667,
+          "dest_lon": -94.306667,
+          "flight_count": 180,
+          "origin": "LGA",
+          "origin_lat": 40.766667,
+          "origin_lon": -73.866667,
+          "tooltip_text": "Carrier: MQ\nFrom LGA \u2192 XNA\nAvg Arr Delay: -0.71 min\nFlights: 180"
+        }
+      ],
+      "getSourceColor": "@@=color",
+      "getSourcePosition": "@@=[origin_lon, origin_lat]",
+      "getTargetColor": "@@=color",
+      "getTargetPosition": "@@=[dest_lon, dest_lat]",
+      "getWidth": 1.6,
+      "id": "39d96a72-f6c7-45a1-8b59-494baab99649",
+      "pickable": true
+    }
+  ],
+  "mapProvider": "carto",
+  "mapStyle": "https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json",
+  "views": [
+    {
+      "@@type": "MapView",
+      "controller": true
+    }
+  ]
+};
+    const tooltip = {'text': '{tooltip_text}'};
+    const customLibraries = null;
+    const configuration = null;
+
+    const deckInstance = createDeck({
+                  container,
+      jsonInput,
+      tooltip,
+      customLibraries,
+      configuration
+    });
+
+  </script>
+</html>
